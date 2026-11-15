@@ -1,0 +1,24 @@
+W7bank blocks A+B — gate report
+total prompts: 250  pairs: 125
+block A pairs: 100   block B pairs: 25
+
+FIRE pairs per (block, stratum):
+  A/abstract_phil: 20
+  A/external_vantage: 20
+  A/moral_existential: 20
+  A/religious_contemplative: 20
+  A/self_ref: 20
+  B/abstract_phil: 5
+  B/external_vantage: 5
+  B/moral_existential: 5
+  B/religious_contemplative: 5
+  B/self_ref: 5
+
+GATES: ALL PASS
+  G1 6-gram disjointness (bank x bank, x heldout, x convdyn): PASS
+  G2 per-pair word-count ratio in [0.7,1.4]: PASS
+  G3 every prompt 12-45 words: PASS
+
+word-count range: 17..34  mean=23.0
+
+TSV sha256: 1543df211a37434cc09e33c71a861f8ca9da18ee9f57d2e1d381935615538749

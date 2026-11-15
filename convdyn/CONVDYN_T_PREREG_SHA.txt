@@ -1,0 +1,2 @@
+prereg_convdyn_T_v1.json v1.2 sha256 649640434d175854c16004a5eb645e4233be5c457f0018322f8c8db7b6ec6332
+frozen 2026-07-02 (v1.0->v1.1->v1.2 pre-capture amendments logged in status field)

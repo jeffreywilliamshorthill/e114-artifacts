@@ -1,0 +1,198 @@
+{
+  "created": "2026-07-06T05:34:15.445105+00:00",
+  "modified": "2026-11-15T02:36:56.257906+00:00",
+  "id": 21213596,
+  "conceptrecid": "20709736",
+  "doi": "10.5281/zenodo.21213596",
+  "conceptdoi": "10.5281/zenodo.20709736",
+  "doi_url": "https://doi.org/10.5281/zenodo.21213596",
+  "metadata": {
+    "title": "Composition-Sensitive Register Readouts in Mixture-of-Experts Routing: A Protocol, with a Case Study in Qwen3.5-35B",
+    "doi": "10.5281/zenodo.21213596",
+    "publication_date": "2026-07-06",
+    "description": "<p><b>Status (2026-10-21): files re-opened.</b> This is the June&ndash;July 2026 program compendium, written while the program was still learning what it was looking at, and it is kept open as a dated lab record rather than as a statement of current claims. Readings that were later narrowed: Expert 114 is one of several genre-selective experts at layer 14 rather than a special self-examination axis (an October 2026 genre control found larger, disjoint expert families for recipe and travel prose); layer 26 of this checkpoint is a trained copy of layer 14, so the dual-layer readout is one readout seen twice (repeated-block scan, doi:10.5281/zenodo.23546828); and all llama.cpp captures in this program tokenized chat markers as literal text (parse_special=false), an encoding under which the readout still replicates. The availability paper (doi:10.5281/zenodo.21892999) cites this record for its 2026-07-06 prediction that Expert 114 disengages under literal reuse and, in v1.4.0, for the model-wide L14/L26 index-correspondence note.</p><p><strong>Status (2026-09-03):</strong> This record was the author's log of journal candidates. As the work evolved, the final publication became the self-copy paper (<a href=\"https://doi.org/10.5281/zenodo.21892999\">doi:10.5281/zenodo.21892999</a>); follow-ups from this concept remain in progress.</p><p><strong>Current version of the Expert 114 paper.</strong> Earlier deposits under other titles (<a href=\"https://doi.org/10.5281/zenodo.20709601\">1.1.1, Localizing a Self-Referential Register\u2026</a>; <a href=\"https://doi.org/10.5281/zenodo.21042439\">1.2.3 anonymous copy, A Single-Expert Readout\u2026</a>) are superseded by this record.</p><p><b>v1.4.0 (2026-07-06):</b> adds the surface-language robustness result (220-row FIRE/NOFIRE bank blind-translated to Spanish/French/Swahili; prefill separation retains 83&ndash;88% (es/fr) and 58&ndash;61% (sw) of the same-build English gap on both surfaces), a verbatim replication of the Berg et al. induction battery under the readout with the frame-licensing observation (identical experiential query yields denial or affirmation at indistinguishable readout levels depending on the preamble), a model-wide L14/L26 index-correspondence bound on the dual-layer reading, a new Ethics Statement, and two new artifact bundles (translation-robustness, induction-protocol).</p><p>We introduce a protocol for testing whether a routed mixture-of-experts (MoE) readout tracks the fresh composition of a generated register rather than the presence of register-like surface text. The protocol combines matched register/control prompts, all-expert ranking, blind auto-interpretation, multi-turn copy diagnostics, paraphrase interventions, and transformation-depth manipulations. Applied to Qwen3.5-35B-A3B, it locates a small routed family of stance separators at layers 14 and 26 for a reflective worldview register and characterizes its most-studied member, Expert 114: the recovered router direction separates register generations from lexically matched controls (Cohen's d = 3.88, separated ranges; rank 21 of 10,240 expert-layer positions on the matched split on the base model, 14 on the fine-tune, and 515 on a world-model fine-tune; the rival E189 outranks E114 at both layers on all three surfaces and holds where E114 falls), a blind auto-interpreter recovers the register at AUC 0.94, and preregistered conversational dynamics show the readout is metered at composition: high during fresh construction, collapsed under literal self-reuse, and restored when prior register material is paraphrased under mechanical gates while semantics are preserved. Across 55 copy-run onsets the gate crossing typically follows the onset (median lead -8 tokens, leading in 11%), reversing an earlier single-trajectory ordering claim; a preregistered dose-response test of copy availability returned its null (the paraphrase dose controls measured copying only leakily), while its endpoints reproduced across machines to &lt;= 0.011. The same battery applied across six output registers shows the compose/reuse routing shift is register-general, with each register carrying its own composer coordinates and a register-invariant thirteen-expert reuse coalition rising on copied spans. E114's own suppression is register-linked: it falls under copying only in the reflective register and rises in code, so composition-metering is a property of the copy regime, within which E114 is the register-linked coordinate. The readout carries only weak, conditional causal control (residual injection suffices to induce the register; gate bias leaves it largely intact), and index 114 is local to this model. The protocol brackets the truth of any subjective claim: it sorts generated self-description by how it was produced, and makes no claim about machine experience. We release the prompts, preregistrations, analysis scripts, and provenance under the MIT license.</p><p><b>What's new in v1.3.1:</b> Version 1.3.1 retitles the work around the protocol object (composition-sensitive register readouts) and adds: the all-position specificity sweep (all 256x40 expert-layer gate axes ranked on three surfaces; frozen spec, analysis code, full per-surface ranking JSONs), the onset-aligned lead-lag replication (55 copy-run onsets; the gate crossing typically follows copy onset, reversing the earlier single-trajectory claim), the six-register generality battery and the dose-response titration with its preregistered null (frozen preregistrations, frozen inputs, scored results), the vantage-ladder axis adjudication (locked blind ratings, frozen regression: worldview content carries the ladder; intensity and construction-load readings retired), the E189/E114 blind auto-interpreter panel, the ladder seed-variance and transformation-depth batteries, the three-arm held-out re-capture (d = 3.38 greedy, temperature-stable), the 300-prompt four-author scaled bank (preregistration, keymap, per-block and worldview-clean results; a diagnostic aggregate null with strong separation on worldview-clean labels), and the Qwen3.6-35B index-stability capture (E114 recovers at the same indices in the successor generation). The paper is revised throughout; all preregistered outcomes are reported with their frozen verdicts, including the nulls.</p><p>This is the paper-scoped durable-artifact bundle: the manuscript, per-run summaries, analysis scripts, prompt and class manifests, frozen preregistrations, checksums, plots, and source journals. Raw activation tensors are excluded by policy (the figure-scoped tensor set is deposited alongside; larger captures are available from the author with SHA-256 provenance). Versions before 1.3.1 carry the earlier title 'A Single-Expert Readout of a Reflective Worldview Register in a Mixture-of-Experts Language Model'.</p>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Shorthill, Jeffrey William",
+        "affiliation": "Independent researcher",
+        "orcid": "0009-0004-3954-2752"
+      }
+    ],
+    "keywords": [
+      "mixture-of-experts",
+      "mechanistic interpretability",
+      "expert routing",
+      "sparse autoencoders",
+      "reflective worldview register",
+      "self-report",
+      "first-person language",
+      "activation steering",
+      "cross-model transfer",
+      "composition-sensitive register readouts",
+      "self-copy",
+      "preregistration"
+    ],
+    "related_identifiers": [
+      {
+        "identifier": "10.5281/zenodo.20709601",
+        "relation": "obsoletes",
+        "resource_type": "publication-preprint",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.5281/zenodo.21042439",
+        "relation": "obsoletes",
+        "resource_type": "publication-preprint",
+        "scheme": "doi"
+      }
+    ],
+    "version": "1.4.0",
+    "language": "eng",
+    "resource_type": {
+      "title": "Preprint",
+      "type": "publication",
+      "subtype": "preprint"
+    },
+    "license": {
+      "id": "mit-license"
+    },
+    "communities": [
+      {
+        "id": "mechinterp"
+      }
+    ],
+    "relations": {
+      "version": [
+        {
+          "index": 11,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "20709736"
+          }
+        }
+      ]
+    },
+    "notes": "Preprint, version 1.2.5; peer review pending. Named official paper-scoped artifact bundle under the MIT License. Version 1.2.5 supersedes v1.2.4 with the same paper/data content and release-prefixed zip filenames so the standalone PDF is the default Zenodo page preview. The update adds the AI-hidden-state follow-up rung, refreshes the ladder figure, and updates the artifact/data archives. The data archive contains the figure-backing captures only, including the new AI-hidden-state rung, with raw tensors kept out of git. Version 1.2.4 is 10.5281/zenodo.21048676. The standalone version 1.2.3 anonymous sharing copy is 10.5281/zenodo.21042938; the version 1.2.2 anonymous sharing copy is 10.5281/zenodo.21042440; the direct version 1.2.0 DOI (10.5281/zenodo.21040909) remains available as a legacy sanitized copy. Written with the intentional, disclosed use of large language models for drafting, organization, and bibliography formatting; every value and reference was verified by the author."
+  },
+  "title": "Composition-Sensitive Register Readouts in Mixture-of-Experts Routing: A Protocol, with a Case Study in Qwen3.5-35B",
+  "links": {
+    "self": "https://zenodo.org/api/records/21213596",
+    "self_html": "https://zenodo.org/records/21213596",
+    "preview_html": "https://zenodo.org/records/21213596?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.21213596",
+    "self_doi": "https://doi.org/10.5281/zenodo.21213596",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.21213596",
+    "reserve_doi": "https://zenodo.org/api/records/21213596/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/20709736",
+    "parent_html": "https://zenodo.org/records/20709736",
+    "parent_doi": "https://doi.org/10.5281/zenodo.20709736",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.20709736",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:21213596/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:21213596/sequence/default",
+    "files": "https://zenodo.org/api/records/21213596/files",
+    "media_files": "https://zenodo.org/api/records/21213596/media-files",
+    "thumbnails": {
+      "10": "https://zenodo.org/api/iiif/record:21213596:e114_acl_style.pdf/full/%5E10,/0/default.jpg",
+      "50": "https://zenodo.org/api/iiif/record:21213596:e114_acl_style.pdf/full/%5E50,/0/default.jpg",
+      "100": "https://zenodo.org/api/iiif/record:21213596:e114_acl_style.pdf/full/%5E100,/0/default.jpg",
+      "250": "https://zenodo.org/api/iiif/record:21213596:e114_acl_style.pdf/full/%5E250,/0/default.jpg",
+      "750": "https://zenodo.org/api/iiif/record:21213596:e114_acl_style.pdf/full/%5E750,/0/default.jpg",
+      "1200": "https://zenodo.org/api/iiif/record:21213596:e114_acl_style.pdf/full/%5E1200,/0/default.jpg"
+    },
+    "latest": "https://zenodo.org/api/records/21213596/versions/latest",
+    "latest_html": "https://zenodo.org/records/21213596/latest",
+    "versions": "https://zenodo.org/api/records/21213596/versions",
+    "draft": "https://zenodo.org/api/records/21213596/draft",
+    "access_links": "https://zenodo.org/api/records/21213596/access/links",
+    "access_grants": "https://zenodo.org/api/records/21213596/access/grants",
+    "access_users": "https://zenodo.org/api/records/21213596/access/users",
+    "access_request": "https://zenodo.org/api/records/21213596/access/request",
+    "access": "https://zenodo.org/api/records/21213596/access",
+    "communities": "https://zenodo.org/api/records/21213596/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/21213596/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/21213596/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/21213596/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/21213596/quota-increase",
+    "requests": "https://zenodo.org/api/records/21213596/requests"
+  },
+  "updated": "2026-11-15T02:36:56.257906+00:00",
+  "recid": "21213596",
+  "revision": 10,
+  "files": [
+    {
+      "id": "1044df89-e68f-4a4c-a506-30ebfb2177bb",
+      "key": "release_data-e114-figure-tensors-v1.2.5.zip",
+      "size": 1117148712,
+      "checksum": "md5:71885ac4e913f7fbd0e0f8f43deaae34",
+      "links": {
+        "self": "https://zenodo.org/api/records/21213596/files/release_data-e114-figure-tensors-v1.2.5.zip/content"
+      }
+    },
+    {
+      "id": "8fe07cb6-cb3b-4912-bba6-c1e2cf36e1e3",
+      "key": "release_artifacts-e114-v1.3.1.zip",
+      "size": 77037654,
+      "checksum": "md5:e0ad0e3f48257c602747745365f657ea",
+      "links": {
+        "self": "https://zenodo.org/api/records/21213596/files/release_artifacts-e114-v1.3.1.zip/content"
+      }
+    },
+    {
+      "id": "fb5c5948-5d6e-4f80-8835-6191088e7f4b",
+      "key": "e114_acl_style.pdf",
+      "size": 636087,
+      "checksum": "md5:a6c080fdb5baae65484dcf6dce6ccb2f",
+      "links": {
+        "self": "https://zenodo.org/api/records/21213596/files/e114_acl_style.pdf/content"
+      }
+    },
+    {
+      "id": "9dba7b20-be7a-4979-b111-910179a2f8ab",
+      "key": "e114_acl_style.tex",
+      "size": 83963,
+      "checksum": "md5:8e15882e413d7343da5b1a71e2fc93d3",
+      "links": {
+        "self": "https://zenodo.org/api/records/21213596/files/e114_acl_style.tex/content"
+      }
+    },
+    {
+      "id": "b379b733-5f05-426e-81c3-1d499b3ad03a",
+      "key": "release_translation-robustness-v1.4.0.zip",
+      "size": 369995,
+      "checksum": "md5:304342f2ba6282f342f19c22a74978ce",
+      "links": {
+        "self": "https://zenodo.org/api/records/21213596/files/release_translation-robustness-v1.4.0.zip/content"
+      }
+    },
+    {
+      "id": "2cab75bc-43a7-4071-a36d-5c88d5617ccd",
+      "key": "release_induction-protocol-v1.4.0.zip",
+      "size": 56165,
+      "checksum": "md5:d6eac80914ff58231a9a63ae261cb223",
+      "links": {
+        "self": "https://zenodo.org/api/records/21213596/files/release_induction-protocol-v1.4.0.zip/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "1664649"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 46,
+    "unique_downloads": 39,
+    "views": 304,
+    "unique_views": 257,
+    "version_downloads": 22,
+    "version_unique_downloads": 22,
+    "version_unique_views": 90,
+    "version_views": 104
+  },
+  "state": "done",
+  "submitted": true
+}

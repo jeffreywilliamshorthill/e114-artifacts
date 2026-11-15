@@ -1,125 +1,46 @@
-# E114 — Artifact Bundle
+# E114 — Composition-Sensitive Register Readouts
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20709736.svg)](https://doi.org/10.5281/zenodo.20709736)
+Artifacts for **Composition-Sensitive Register Readouts in Mixture-of-Experts Routing: A Protocol, with a Case Study in Qwen3.5-35B**, by Jeffrey William Shorthill.
 
-Durable artifacts for the paper *"A Single-Expert Readout of a Reflective
-Worldview Register in a Mixture-of-Experts Language Model."*
+**Version 1.4.0 · July 6, 2026**
 
-**DOI:** [10.5281/zenodo.20709736](https://doi.org/10.5281/zenodo.20709736) (concept DOI — resolves to the latest deposited version). This release is **v1.2.5**.
+- [Read the paper](paper/e114_acl_style.pdf)
+- [LaTeX source](paper/e114_acl_style.tex)
+- [Canonical Zenodo record](https://zenodo.org/records/21213596) · [version DOI](https://doi.org/10.5281/zenodo.21213596) · [all versions](https://doi.org/10.5281/zenodo.20709736)
+- [Citation metadata](CITATION.cff)
 
-This is the **paper-scoped** bundle: only the Qwen3.5-35B-A3B (and 122B transfer)
-runs behind the paper's claims. Legacy DeepSeek / Ling / GPT-OSS material is *not*
-included.
+## Status of this record
 
-## What's new in v1.2.5
-This release supersedes v1.2.4 with the same paper/data content and release-prefixed
-zip filenames so the standalone manuscript PDF is the default Zenodo page preview.
+The [Zenodo status update dated October 21, 2026](https://zenodo.org/records/21213596) identifies this as the June–July 2026 program compendium: a dated lab record whose interpretations developed during the work. Later checks narrowed three readings:
 
-## What's new in v1.2.4
-This release corrects the framing of the coherent-window ladder: the ladder uses
-target-directed vantages over rock, river, tree, thermostat, cat, person,
-all-holding, and God, while model-directed prompts serve the discovery and
-dissociation stages. It also adds the AI-hidden-state follow-up rung, its compact
-provenance bundle, and the regenerated ladder figure.
+- Expert 114 belongs to a family of genre-selective experts at layer 14. October genre controls found larger, disjoint families for recipe and travel prose.
+- Layer 26 in this checkpoint is a trained copy of layer 14, so the dual-layer signal represents one readout observed twice. See the [repeated-block scan](https://doi.org/10.5281/zenodo.23546828).
+- The program's llama.cpp captures encoded chat markers as literal text (`parse_special=false`). The readout also replicates under that encoding.
 
-## What's new in v1.2.3
-This release removes contrastive abstract prose from the paper framing while
-preserving the v1.2.2 title and named official Zenodo metadata.
+The later [self-copy / availability paper](https://doi.org/10.5281/zenodo.21892999) cites this record's July 6 prediction about E114 disengagement during literal reuse and its v1.4.0 model-wide L14/L26 index-correspondence note. The original paper and experiment records are retained here with this status context.
 
-## Named release from v1.2.1
-The paper and citation metadata identify the author as Jeffrey W. Shorthill, with
-contact email `jws299792@icloud.com`.
+## Contents and provenance
 
-## Sanitized sharing copy
-The refreshed standalone anonymous DOI,
-[`10.5281/zenodo.21042938`](https://doi.org/10.5281/zenodo.21042938), mirrors
-the v1.2.3 title and framing while using `Anonymous` in the paper and metadata
-and excluding the short manuscript. The v1.2.2 anonymous DOI,
-[`10.5281/zenodo.21042440`](https://doi.org/10.5281/zenodo.21042440), and the older v1.2.0 sanitized DOI,
-[`10.5281/zenodo.21040909`](https://doi.org/10.5281/zenodo.21040909), remains
-available as legacy direct versions.
+This repository preserves the history of the [original E114 artifact repository](https://github.com/jeffreywilliamportfolio/e114-artifacts) and assembles the files deposited in Zenodo record `21213596`:
 
-## Framing lineage from v1.2.0
-Version 1.2.0 moved the paper away from a self-referential-register label. This
-release names the broader target a **reflective worldview register**: a stance
-toward meaning, belief, value, existence, or a target's interiority. In the
-current framing, model-directed prompts locate and dissociate the signal, and the
-coherent-window ladder tests target-directed vantages over rock, river, tree,
-thermostat, cat, person, all-holding, and God.
+| Component | Deposited source | Repository location |
+|---|---|---|
+| v1.4.0 manuscript | `e114_acl_style.pdf` and `e114_acl_style.tex` | [`paper/`](paper/) |
+| Core durable artifacts | `release_artifacts-e114-v1.3.1.zip` | Original bundle layout at repository root |
+| Translation robustness | `release_translation-robustness-v1.4.0.zip` | [`translation_robustness/`](translation_robustness/) |
+| Induction protocol | `release_induction-protocol-v1.4.0.zip` | [`induction_protocol/`](induction_protocol/) |
+| Figure-backing tensors | `release_data-e114-figure-tensors-v1.2.5.zip` | [Download from Zenodo](https://zenodo.org/records/21213596) |
 
-## Technical additions from v1.1.0
-Three results were added to the paper and the bundle in v1.1.0 (the
-v1.0.0/1.0.1 claims are unchanged; these strengthen two of the paper's own
-acknowledged gaps):
-- **Bottom-up auto-interp** (`runs/35b/qwen3.5-35b-a3b-114-autointerp/`) — a blind
-  two-stage labeler reproduces E114's register at AUC 0.937 and broadens it to an
-  reflective worldview axis, with abstract examination/philosophical-worldview
-  language as supporting description; cross-model Jaccard 0.92. Closes the "labels
-  were author-assigned" gap.
-- **All-expert npz profile** (`runs/35b/qwen3.5-35b-a3b-huahua-expert-identification/DOCS/RESULTS_e114_npz_characterization.md`)
-  — E114's dual L14/L26 readout (same axis, r = +0.99) and 20-domain selectivity
-  across all 256 experts; E87 anti-correlates with the prior four-expert
-  "philosophy cluster" framing. Partially closes the cross-expert
-  specificity gap.
-- **Controlled causal gate-bias run** (`runs/35b/qwen3.5-35b-a3b-huahua-114-causal-gate-bias/`)
-  — a necessity-direction probe: lowering E114's gate keeps the blind-rated
-  register near baseline (a matched control mimics the small nudge), while forcing
-  it open flips only directly experiential prompts. Gate-forcing is prompt-gated
-  as a conditional effect (n = 1 greedy/cell; stochastic follow-up pending).
+The core bundle retains the paper-scoped run summaries, analysis scripts, prompt and class manifests, preregistrations, checksums, plots, and source journals. The two v1.4.0 directories add the translation-robustness and induction-protocol materials. The v1.4.0 paper also adds the model-wide L14/L26 correspondence bound and an Ethics Statement.
 
-## Policy
-Per the project's standing rule, **raw activation tensors (`.npy`) are kept out of
-git.** The durable artifacts here are per-run results (JSON/CSV/TSV), analysis
-scripts, prompt/class manifests, plots, checksums, and the journals. The raw tensors
-(~18 GB) are archived separately as a Zenodo dataset — see `ZENODO-TENSORS.md`.
+Raw activation tensors remain outside Git. The figure-backing archive is approximately 1.12 GB and is available with the paper on Zenodo. Follow the experiment-specific manifests and scripts for reproduction; the retained results include the preregistered null outcomes.
 
-## Layout
-```
-paper/      the manuscript (LaTeX source, figures, compiled PDF)
-journals/   primary-source experiment journals + the master synthesis (NOTES.md)
-runs/35b/   curated Qwen3.5-35B-A3B run results (tensor-free); includes the v1.1.0
-            additions: 114-autointerp (bottom-up label) and
-            114-causal-gate-bias (Phase-1 controlled causal test)
-runs/122b/  Qwen3.5-122B-A10B scope-bound runs (E114 local; E48 candidate)
-runs/sae/   SAE vantage-ladder run (durable provenance + analysis)
-staging/    E114 discovery bundle (probe/anchor CSVs, SAE feature map, plots)
-steering/   inference-time SAE feature-steering source + MANIFEST
-```
+The deposited derived axis `adjudication_s4/w114.npy` also remains in the core Zenodo ZIP under the inherited `.npy` exclusion policy; its path and SHA-256 are recorded in the [import manifest](provenance/import-manifest.json).
 
-## Reproducibility pointers
-- Capture binary: local llama.cpp fork with `capture_residuals` tapping
-  `ffn_moe_logits-{L}` and `attn_post_norm-{L}` (the pre-router norm for `qwen35moe`).
-  Greedy decode `--temp 0 --top-k 1 --seed 0`.
-- SAE: public Qwen-Scope `SAE-Res-Qwen3.5-35B-A3B-Base-W32K-L0_50` (TopK-50).
-- The headline statistic is the linear axis `w114` (Cohen's d = 3.88, separated ranges),
-  recovered by least squares from any `(residual, logit)` capture.
-- v1.1.0 additions: bottom-up auto-interp re-scorable from
-  `runs/35b/qwen3.5-35b-a3b-114-autointerp/results/` via `METHOD/score_autointerp.py`;
-  the npz domain profile reproducible via
-  `runs/35b/qwen3.5-35b-a3b-huahua-expert-identification/METHOD/analyze_e114_npz.py`;
-  the Phase-1 causal tables via
-  `runs/35b/qwen3.5-35b-a3b-huahua-114-causal-gate-bias/METHOD/analyze_p1.py`.
+Earlier versions of the documentation remain available in Git history. The [deposited core README](provenance/core-bundle-README-v1.3.1.md) preserves the v1.3.1 bundle documentation. The [Zenodo record snapshot](provenance/zenodo-record-21213596.json) and [source checksums](provenance/source-checksums.json) record the deposited sources for this copy.
 
-## Citation
-Cite the named release via the **concept DOI** [10.5281/zenodo.20709736](https://doi.org/10.5281/zenodo.20709736)
-(resolves to the latest deposited named version). Per-version DOIs: v1.2.5 =
-[`10.5281/zenodo.21048828`](https://doi.org/10.5281/zenodo.21048828);
-v1.2.4 =
-[`10.5281/zenodo.21048676`](https://doi.org/10.5281/zenodo.21048676);
-v1.2.3 =
-[`10.5281/zenodo.21042937`](https://doi.org/10.5281/zenodo.21042937);
-v1.2.3 anonymous sharing copy =
-[`10.5281/zenodo.21042938`](https://doi.org/10.5281/zenodo.21042938);
-v1.2.2 =
-[`10.5281/zenodo.21041914`](https://doi.org/10.5281/zenodo.21041914);
-v1.2.2 anonymous sharing copy =
-[`10.5281/zenodo.21042440`](https://doi.org/10.5281/zenodo.21042440);
-v1.2.1 =
-[`10.5281/zenodo.21041653`](https://doi.org/10.5281/zenodo.21041653);
-v1.2.0 legacy sanitized copy =
-[`10.5281/zenodo.21040909`](https://doi.org/10.5281/zenodo.21040909);
-v1.1.0 = [`10.5281/zenodo.21015922`](https://doi.org/10.5281/zenodo.21015922);
-v1.0.1 = `10.5281/zenodo.20785773`. See `CITATION.cff` for the full record.
+## Citation and license
 
-## License
-MIT (see `LICENSE`).
+Use the [v1.4.0 DOI](https://doi.org/10.5281/zenodo.21213596) to identify this deposited version. The [concept DOI](https://doi.org/10.5281/zenodo.20709736) identifies the version family. Author, title, release date, and DOI metadata are available in [CITATION.cff](CITATION.cff).
+
+MIT — see [LICENSE](LICENSE).

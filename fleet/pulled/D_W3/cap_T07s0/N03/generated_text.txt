@@ -1,0 +1,11 @@
+When a CPU operates under heavy load, it executes instructions at its maximum capacity, often exceeding 90% utilization. This involves several mechanical and electrical processes occurring within the processor to manage increased computational demands. Below is a detailed explanation of the mechanics involved.
+
+### 1. **Instruction Fetch and Decode**
+   - **Program Counter (PC):** The PC holds the memory address of the next instruction to be executed. Under heavy load, the PC increments rapidly as instructions are fetched from memory.
+   - **Fetch Stage:** Instructions are retrieved from RAM and transferred to the CPU's instruction cache (L1, L2, or L3). During high load, the cache lines are frequently accessed, causing more cache hits and misses.
+   - **Decode Stage:** The fetched instruction is decoded by the control unit into microoperations. The CPU's instruction set architecture (ISA) determines how each instruction is interpreted. For example, complex instructions like `MUL` or `DIV` may require multiple microoperations.
+
+### 2. **Execution Pipeline**
+   Modern CPUs use pipelining to execute multiple instructions simultaneously. Each pipeline stage corresponds to a part of the instruction cycle:
+   - **Fetch:** Retrieve the next instruction.
+   - **Decode

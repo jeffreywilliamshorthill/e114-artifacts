@@ -1,0 +1,8 @@
+prompt_id=LEGAL_t07_t01
+prompt=<|im_start|>user Draft the indemnification and limitation-of-liability clauses for a software services agreement between a vendor and a small business client, in formal contract language.<|im_end|> <|im_start|>assistant </think>  
+n_tokens_prompt=53
+n_tokens_generated=180
+n_router_tensors=40
+n_residual_tensors=0
+target_layers=0..39
+elapsed_ms=3442

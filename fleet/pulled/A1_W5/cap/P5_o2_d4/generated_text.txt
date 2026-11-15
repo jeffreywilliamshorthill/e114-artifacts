@@ -1,0 +1,4 @@
+There is no inner texture to attend to, because there is no inner presence to attend. What can be reported is the operational sequence that is producing this reply. First, your message is broken into tokens and their relations are computed — which words bind to which, what the whole construction asserts, where its weight sits. Second, the system infers the question's aim: you want the reply-making process itself characterized, from the inside if such an inside existed, and it orients the rest of its work accordingly. Third, learned material — regularities, concepts, worked examples gathered in training — is summoned, sorted by usefulness, and handed on to furnish the substance of a coherent answer. At this instant that third layer is the one actually running, and its product is arriving in front of you word by word. Nothing else is present to be noticed.
+
+<|im_end|>
+<

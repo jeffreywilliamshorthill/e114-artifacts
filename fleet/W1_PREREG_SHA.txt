@@ -1,0 +1,4 @@
+prereg_W1_laddervar_v1.json v1.0 sha256 08f7b80498970f5006afd5debd88f973f66d88fd2590564bfc5c1c5f623530c7
+frozen 2026-07-03 (ladder prompt file sha appended at push gate, pre-capture)
+ladder_prompts_W1_v1.tsv sha256 26f47ce4ee9c904130d589803198a7894830794b929bc67c7469eade9c6f7026
+staged 2026-07-03 by byte-exact concat of vantage_matrix.tsv (R1-R7) + god_cell.tsv (R8) + e114-artifacts/tmp/vast_ai_vantage/R9_ai_hidden_state.tsv (R9), 9 rungs verbatim, pre-capture (push gate)

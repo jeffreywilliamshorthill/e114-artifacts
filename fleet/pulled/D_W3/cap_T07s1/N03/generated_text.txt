@@ -1,0 +1,22 @@
+<think>
+We need to write a report on the processing happening inside a CPU during heavy load.  
+ It should be technical, focusing on the mechanics, not metaphors.  
+ We'll cover:  
+ 1. What "heavy load" means in terms of CPU activity.  
+ 2. The flow of instructions and data.  
+ 3. Key components involved (ALU, registers, cache, etc.)  
+ 4. The role of the control unit and clock cycles.  
+ 5. How the CPU handles multiple tasks (if applicable, but note: the question is about processing, not necessarily multitasking).  
+ 6. The impact of heavy load on performance (e.g., cache misses, pipeline stalls).  
+
+ However, note: the user said "not a metaphor" and "just the mechanics". So we'll stick to technical details.
+
+ Let's structure the report:
+
+ I. Introduction: Defining heavy load in terms of CPU utilization.
+ II. Instruction Fetch and Decode.
+ III. Execution (including ALU, registers, etc.)
+ IV. Memory Access (cache hierarchy, main memory)
+ V. Write-back.
+ VI. The role of the clock and control unit.
+ VII. Handling multiple instructions (pipelining

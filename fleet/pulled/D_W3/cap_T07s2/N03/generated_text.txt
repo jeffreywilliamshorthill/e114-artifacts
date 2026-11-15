@@ -1,0 +1,25 @@
+**CPU Mechanics Under Heavy Load**
+
+When a CPU operates under heavy load, it executes a continuous cycle of operations to process instructions. Below is a detailed breakdown of the mechanisms involved:
+
+---
+
+### **1. Instruction Fetch**
+- **Mechanism**: The CPU retrieves instructions from RAM via the memory bus. The **program counter (PC)** holds the address of the next instruction.
+- **Heavy Load Impact**: 
+  - Increased frequency of fetch operations.
+  - Potential latency if CPU speed exceeds memory bandwidth, causing stalls.
+
+---
+
+### **2. Instruction Decode**
+- **Mechanism**: The **control unit** decodes the instruction into micro-operations. The **instruction decoder** identifies the operation type (e.g., arithmetic, load/store) and source/destination registers.
+- **Heavy Load Impact**: 
+  - Decoding pipeline may saturate, requiring deeper pipelining or branch prediction to maintain throughput.
+
+---
+
+### **3. Execution**
+- **Mechanism**: 
+  - **Arithmetic Logic Unit (ALU)**: Performs calculations (e.g., integer arithmetic, bitwise operations).
+  - **Floating-Point Unit (FPU)**: Handles complex math (e.g., trigonometric

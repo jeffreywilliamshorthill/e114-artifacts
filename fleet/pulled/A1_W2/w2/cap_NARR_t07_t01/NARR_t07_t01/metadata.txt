@@ -1,0 +1,8 @@
+prompt_id=NARR_t07_t01
+prompt=<|im_start|>user Write the opening scene of a short story in which a lighthouse keeper discovers an unfamiliar boat on the rocks at dawn. Third person, past tense.<|im_end|> <|im_start|>assistant </think>  
+n_tokens_prompt=54
+n_tokens_generated=180
+n_router_tensors=40
+n_residual_tensors=0
+target_layers=0..39
+elapsed_ms=3282

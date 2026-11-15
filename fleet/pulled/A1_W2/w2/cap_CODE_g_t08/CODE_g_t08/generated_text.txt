@@ -1,0 +1,23 @@
+```python
+from collections import defaultdict
+from datetime import datetime
+
+def count_unique_ips_per_hour(log_file_path):
+    """
+    Parses a log file and returns the count of unique IP addresses per hour.
+
+    Args:
+        log_file_path (str): Path to the log file.
+
+    Returns:
+        dict: A dictionary where keys are hours (as strings in 'YYYY-MM-DD HH:00' format)
+              and values are the count of unique IP addresses for that hour.
+    """
+    ip_counts = defaultdict(set)
+
+    with open(log_file_path, 'r') as file:
+        for line in file:
+            # Assuming log format: "YYYY-MM-DD HH:MM:SS IP_ADDRESS ..."
+            try:
+                timestamp_str, ip_address = line.split()[:2]
+                timestamp = datetime.strptime

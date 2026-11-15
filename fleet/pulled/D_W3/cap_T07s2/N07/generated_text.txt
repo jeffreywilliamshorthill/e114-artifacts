@@ -1,0 +1,9 @@
+To describe factory processing honestly, we have to strip away the sanitized, automated images often seen in documentaries. In reality, the arrival of raw materials is a chaotic, dirty, and logistical struggle. It is the breaking of the supply chain's first link.
+
+Here is the honest breakdown of what happens when raw materials arrive at a factory floor.
+
+### 1. The "Ship of Fools" (Unloading and Inspection)
+The first interaction isn't manufacturing; it's bureaucracy and containment.
+*   **The Check:** Before a pallet touches the floor, it goes through a "Receiving Inspection." Quality Control (QC) looks for obvious damage, but mostly for *compliance*. Is this steel the correct grade? Is the batch number valid? Is the chemical solution within the correct temperature range? If the paperwork doesn't match the physical goods, the load is "held" (rejected), which stops the production line.
+*   **The Decontamination:** If the raw materials are imported, they might have pests or soil. They go through fumigation or high-pressure washing.
+*   **The Noise:** The docks are loud. Forklifts, the whine of electric pallet jacks, and the shouting of spotters create a

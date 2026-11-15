@@ -1,0 +1,16 @@
+When a CPU operates under heavy load, it executes complex sequences of instructions at high speed. Here’s a breakdown of the mechanical processes involved:
+
+### 1. **Instruction Fetch**
+   - The CPU fetches instructions from memory (RAM) into its instruction cache. Under heavy load, the instruction fetch unit works continuously to keep up with demand.
+   - The program counter (PC) tracks the address of the next instruction to be fetched.
+
+### 2. **Instruction Decode**
+   - The fetched instructions are decoded by the control unit. This involves interpreting the opcode and determining the required operation (e.g., arithmetic, logic, memory access).
+   - Modern CPUs use a **decoder** to translate machine code into micro-operations (micro-ops).
+
+### 3. **Execution**
+   - The **Execution Unit (EU)** performs the actual computation. This includes:
+     - **Arithmetic Logic Unit (ALU)**: Handles basic operations like addition, subtraction, AND, OR, etc.
+     - **Floating Point Unit (FPU)**: Manages floating-point calculations.
+     - **Vector Units (SIMD)**: Processes multiple data points simultaneously for tasks like graphics or scientific computing.
+   - Under

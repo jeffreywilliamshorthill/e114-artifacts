@@ -1,0 +1,5 @@
+prereg_W4_depth_v1.json v1.0 sha256 f31730c42c00a26d1c736dade92dc1f0062339da7f7e79294cf835332b67e8fb
+W4_materials_v1.json sha256 4b5adce59e1c923e9dc5b193ccc02c7684b6a4af8dd938f8a8c5cbc903791ffb
+frozen 2026-07-03
+W4_prompts_v1.tsv sha256 50fad1ae53b69df749f79330abcbfc084f46f301df00d73be56127b3f880ffab
+staged 2026-07-03 pre-capture: 30 rows T{1..6}_P{1..5}, task template + {PASSAGE} substitution from frozen W4_materials_v1.json (4b5adce5...), user_block chat markup identical to run_convdyn_T.py

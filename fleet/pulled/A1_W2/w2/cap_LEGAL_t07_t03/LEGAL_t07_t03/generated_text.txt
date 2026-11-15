@@ -1,0 +1,8 @@
+**Indemnification Clause**
+
+1. **Vendor’s Indemnification**: The Vendor shall indemnify, defend, and hold harmless the Client, its affiliates, officers, directors, employees, and agents from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys’ fees) arising out of or relating to:
+   - Any breach of the Vendor’s representations, warranties, or obligations under this Agreement;
+   - Any claim that the Software or Services infringe or misappropriate any third-party intellectual property rights; or
+   - Any negligence or willful misconduct by the Vendor or its personnel in connection with the performance of the Services.
+
+2. **Client’s Indemnification**: The Client shall indemnify, defend, and hold harmless the Vendor, its affiliates, officers, directors, employees, and agents from and against any and all

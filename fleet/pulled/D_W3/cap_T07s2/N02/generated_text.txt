@@ -1,0 +1,12 @@
+When a computer processes a large spreadsheet, it undergoes a series of technical operations that involve both hardware and software components. Here’s a breakdown of the process:
+
+### 1. **Data Loading and Memory Allocation**
+   - **Data Loading**: The spreadsheet file (e.g., `.xlsx`, `.csv`) is read from disk into memory. This involves parsing the file format, which can be complex due to the structured nature of spreadsheets (rows, columns, formulas, etc.).
+   - **Memory Allocation**: The computer allocates memory (RAM) to store the data. For large spreadsheets, this can be a significant amount of memory, and the operating system may need to manage virtual memory if the data exceeds physical RAM.
+
+### 2. **Data Structure Representation**
+   - **Tables and Matrices**: The spreadsheet data is often represented in memory as tables or matrices. Each cell can be stored as a value (number, string, boolean) or a formula.
+   - **Linked Lists or Arrays**: Depending on the software, the data might be stored in arrays (for fixed-size spreadsheets) or linked lists (for dynamic sizes).
+
+### 3. **Formula Evaluation**
+   - **Dependency Graph**: The software constructs

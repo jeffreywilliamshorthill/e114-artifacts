@@ -1,0 +1,13 @@
+When a computer processes a large spreadsheet, it involves several technical operations that can be described as follows:
+
+1. **Memory Allocation**: The computer allocates memory to store the spreadsheet data. For large spreadsheets, this often means using virtual memory (a combination of RAM and disk space) to handle the data that exceeds physical RAM.
+
+2. **Data Loading**: The spreadsheet file is loaded into memory. This involves parsing the file format (e.g., CSV, XLSX) and converting it into a structured format that the computer can process efficiently.
+
+3. **Data Processing**: The computer performs various operations on the data, such as sorting, filtering, and mathematical calculations. These operations are typically optimized using algorithms and data structures to minimize computational time and resource usage.
+
+4. **Cache Utilization**: The computer uses CPU caches to store frequently accessed data, reducing the need to fetch data from slower RAM or disk storage. This speeds up the processing of large spreadsheets.
+
+5. **Parallel Processing**: Modern computers often use multi-core processors to perform parallel processing. This allows multiple data operations to be executed simultaneously, significantly improving performance for large datasets.
+
+6. **I/O Operations**: The computer reads from and writes to the disk, which is a relatively

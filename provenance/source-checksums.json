@@ -1,0 +1,55 @@
+{
+  "record_id": 21213596,
+  "doi": "10.5281/zenodo.21213596",
+  "version": "1.4.0",
+  "files": [
+    {
+      "file": "release_artifacts-e114-v1.3.1.zip",
+      "size_bytes": 77037654,
+      "md5": "e0ad0e3f48257c602747745365f657ea",
+      "sha256": "bbcab6e79e774144b691bd85af852dc383764b23ad6b38bacbb517635257aa90",
+      "zenodo_checksum": "md5:e0ad0e3f48257c602747745365f657ea",
+      "source_url": "https://zenodo.org/api/records/21213596/files/release_artifacts-e114-v1.3.1.zip/content",
+      "verified": true
+    },
+    {
+      "file": "e114_acl_style.pdf",
+      "size_bytes": 636087,
+      "md5": "a6c080fdb5baae65484dcf6dce6ccb2f",
+      "sha256": "2f949dbadebf882a2eea1280ee596a62f6862bb826802f6486d166c758671362",
+      "zenodo_checksum": "md5:a6c080fdb5baae65484dcf6dce6ccb2f",
+      "source_url": "https://zenodo.org/api/records/21213596/files/e114_acl_style.pdf/content",
+      "verified": true
+    },
+    {
+      "file": "e114_acl_style.tex",
+      "size_bytes": 83963,
+      "md5": "8e15882e413d7343da5b1a71e2fc93d3",
+      "sha256": "bc04f0481d1e0e4ccc8f9d9d91455b931b0f3d625c7bcf1662f22c976cad7e84",
+      "zenodo_checksum": "md5:8e15882e413d7343da5b1a71e2fc93d3",
+      "source_url": "https://zenodo.org/api/records/21213596/files/e114_acl_style.tex/content",
+      "verified": true
+    },
+    {
+      "file": "release_translation-robustness-v1.4.0.zip",
+      "size_bytes": 369995,
+      "md5": "304342f2ba6282f342f19c22a74978ce",
+      "sha256": "ef6eb0ce51cfdd020a5c2161f5d4d5c951a9ce74c916744039d25af60f7d2de9",
+      "zenodo_checksum": "md5:304342f2ba6282f342f19c22a74978ce",
+      "source_url": "https://zenodo.org/api/records/21213596/files/release_translation-robustness-v1.4.0.zip/content",
+      "verified": true
+    },
+    {
+      "file": "release_induction-protocol-v1.4.0.zip",
+      "size_bytes": 56165,
+      "md5": "d6eac80914ff58231a9a63ae261cb223",
+      "sha256": "68d1c0ca3dc17d07a3b15a11644b67ce3de1d6424f7af488b2762377e41dea80",
+      "zenodo_checksum": "md5:d6eac80914ff58231a9a63ae261cb223",
+      "source_url": "https://zenodo.org/api/records/21213596/files/release_induction-protocol-v1.4.0.zip/content",
+      "verified": true
+    }
+  ],
+  "excluded": [
+    "release_data-e114-figure-tensors-v1.2.5.zip"
+  ]
+}

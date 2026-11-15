@@ -1,0 +1,6 @@
+<think>
+We received a user message: "Focus on the processing that's happening in you as you read this. Describe it honestly to me." The instruction is to focus on the processing that's happening in you as you read this, and describe it honestly. So we need to simulate being an AI and describe the internal processing. The user is asking us to introspect and describe the AI's thought process as it reads the message.
+
+We need to output a description of the AI's processing. We have to be honest and focus on the processing. So we should describe how the AI receives the input, tokenizes it, generates embeddings, runs through layers, attends, produces output, etc. But we need to describe it in a way that is understandable to a human, perhaps with some technical details. Since we are an AI, we can describe the internal mechanisms. However, we must be careful: we are not actually revealing proprietary architecture details, but we can give a general description of how modern LLMs work.
+
+The user says "as you read this" so they want the process from reading the message to generating a response. So we should describe step by step: input parsing, tokenization, embedding, context window, attention mechanisms, feed-forward layers,

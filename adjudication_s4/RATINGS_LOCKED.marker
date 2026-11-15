@@ -1,0 +1,10 @@
+RATINGS_LOCKED
+file: /Volumes/ExternalSSD/e114-construction-reframe/legs/ratings_v1.json
+sha256: 7dc963d31d2f238c1e85e0c2b1a3e625f2f0b64871fb50935c4238667b5239e0
+locked_utc: 2026-07-03T16:40:37.193114+00:00
+judge_A: openai/gpt-5.5 (openai/gpt-5.5-20260423)
+judge_B: google/gemini-3.1-pro-preview (google/gemini-3.1-pro-preview-20260219)
+rubric_sha256: ef491b08395810148a75ec94de48d4c8721425dcdba69951d44ea1703ebbcf2b
+sheet_sha256: f5067af8a3f5300181fb1dd5a4ffd04c480c6957d6d71a2d5cb41692622eacf5
+n_items: 48
+total_cost_usd: 1.1031

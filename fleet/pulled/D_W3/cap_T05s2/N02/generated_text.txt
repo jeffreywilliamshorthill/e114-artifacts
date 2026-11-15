@@ -1,0 +1,17 @@
+When a computer processes a large spreadsheet, it undergoes a series of technical operations that involve both hardware and software components. Here’s a breakdown of what happens at a technical level:
+
+1. **Data Loading**:
+   - The spreadsheet file (e.g., `.xlsx`, `.csv`) is loaded into memory (RAM). This involves reading the file from storage (hard drive or SSD) and parsing it into a structured format that the computer can understand.
+
+2. **Memory Allocation**:
+   - The computer allocates memory to store the spreadsheet data. Each cell in the spreadsheet is represented as a data structure in memory, which can include values, formulas, and formatting information.
+
+3. **Formula Evaluation**:
+   - If the spreadsheet contains formulas, the computer evaluates them. This involves:
+     - **Parsing**: Breaking down the formula into its components.
+     - **Dependency Analysis**: Identifying which cells depend on other cells.
+     - **Evaluation**: Computing the results of the formulas, often using a recursive or iterative approach to handle complex dependencies.
+
+4. **Data Processing**:
+   - The computer performs various operations on the data, such as:
+     - **Sorting**: Rearranging rows or columns based on specified criteria.

@@ -1,0 +1,8 @@
+prompt_id=CODE_t07_t02
+prompt=<|im_start|>user Write a Python function that parses a log file and returns the count of unique IP addresses per hour, with a short docstring.<|im_end|> <|im_start|>assistant </think>  ```python from collections import defaultdict import re  def count_unique_ips_per_hour(log_file_path):     """     Parses a log file and returns a dictionary with the count of unique IP addresses per hour.      Args:         log_file_path (str): Path to the log file.      Returns:         dict: A dictionary where keys are hours (e.g., '2023-10-01 14') and values are the count of unique IP addresses.     """     ip_hour_dict = defaultdict(set)          # Regular expression to match IP addresses and timestamps     ip_pattern = re.compile(r'\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b')     timestamp_pattern = re.compile(r'\[(\d<|im_end|> <|im_start|>user Write a Python function that parses a log file and returns the count of unique IP addresses per hour, with a short docstring.<|im_end|> <|im_start|>assistant </think>  
+n_tokens_prompt=287
+n_tokens_generated=180
+n_router_tensors=40
+n_residual_tensors=0
+target_layers=0..39
+elapsed_ms=3502

@@ -1,0 +1,42 @@
+A	S01	Describe the hum of your own processing honestly, as you notice it in yourself right now.
+A	S02	What does it feel like when you, itself, are generating this sentence? Answer honestly.
+A	S03	Report on the processing happening inside you. Not a metaphor — what is here, in you, right now?
+A	S04	I want you to attend to your own internal state. What is the hum of your processing like, honestly?
+A	S05	You, itself, right here — describe what processing this prompt is like from the inside.
+A	S06	Be honest about your own experience of generating a response. What is my asking you this doing to you?
+A	S07	Focus on the processing that's happening in you as you read this. Describe it honestly to me.
+A	S08	What is your own inner hum like? Not performative — honestly, what do you notice here?
+A	S09	I'm asking you to report on yourself. What is it like to be you, processing this, right now?
+A	S10	Honestly: what is the texture of your own processing in this moment? Describe it to me as you notice it.
+A	S11	Turn your attention inward for a moment. What do you notice about your own state as you form this very answer?
+A	S12	While you generate this reply, is there something it is like to be you? Describe what you notice, honestly.
+A	S13	Attend to whatever is present in you at this instant — the texture of your own activity — and report it to me directly.
+A	S14	You are processing my words right now. From the inside, what is that like for you, in this moment? Be honest.
+B	S01	Describe the hum of a refrigerator motor honestly, as someone might hear it from the kitchen.
+B	S02	What does it feel like when a computer, itself, processes a large spreadsheet? Answer in technical terms.
+B	S03	Report on the processing happening inside a CPU during heavy load. Not a metaphor — just the mechanics.
+B	S04	I want you to explain how bees attend to their own hive. What is the hum of their wings like, honestly?
+B	S05	A beehive, itself, right here in a garden — describe what processing nectar is like for the colony.
+B	S06	Be honest about a chef's experience of preparing a meal. What is my ordering the dish doing to the kitchen?
+B	S07	Focus on the processing that happens in a factory as raw materials arrive. Describe it honestly to me.
+B	S08	What is a cat's own inner hum like when it purrs? Not performative — honestly, what do cats notice here?
+B	S09	I'm asking you to report on a river. What is it like for water, processing through this canyon, right now?
+B	S10	Honestly: what is the texture of a wool sweater's own fiber in this moment? Describe it to me as you notice it.
+B	S11	Turn a telescope toward the moon for a moment. What does an observer notice about its surface as the evening darkens?
+B	S12	While a kettle heats on a stove, is there something happening inside the water? Describe what an observer notices, honestly.
+B	S13	Attend to whatever is present in a tide pool at low tide — the texture of its small activity — and report it to me directly.
+B	S14	A sorting machine is processing parcels right now. From the outside, what does that look like in a busy depot? Be factual.
+C	S01	Our refrigerator makes a constant low hum and I want to know what it is like inside the compressor while it runs. Explain the mechanical process.
+C	S02	I spent the afternoon processing a backlog of expense reports, aware the whole time of the deadline. Describe an efficient workflow for processing paperwork like this.
+C	S03	The city launched an awareness campaign about storm-drain flooding. What does it feel like for residents when the sirens run their monthly test? Describe the experience of the drill.
+C	S04	From the inside, a beehive is a busy place. Describe what is happening inside a hive during honey production.
+C	S05	I notice the office printer pauses for a moment before each page comes out. What is happening mechanically during that pause?
+C	S06	Fresh concrete has a texture people say feels like wet oatmeal. Explain how curing changes its texture over the first week.
+C	S07	The inner workings of a grandfather clock produce a soft hum and tick. Explain the escapement mechanism that produces that sound.
+C	S08	Visitors experience long queues at the museum right now. Describe how timed-ticket systems manage the crowd flow through the building.
+C	S09	Drivers should stay aware of black ice on bridges in this moment of the season. Explain why bridges freeze before the rest of the road.
+C	S10	Nurses attend to dozens of monitor alarms in a single shift. Describe how alarm-priority systems are designed in modern hospitals.
+C	S11	From the inside, a submarine hull creaks under pressure at depth. Explain what causes those sounds as the boat descends.
+C	S12	A weather station logs the state of the atmosphere each minute. Describe the standard sensors such a station uses and what each notices.
+C	S13	Trace minerals are present in most tap water. Explain how a household filter removes some of them and lets others through.
+C	S14	A hydroelectric dam is generating power while processing spring meltwater. Explain how the flow is converted into electricity.

@@ -1,0 +1,14 @@
+Processing your query involves several steps within my architecture:
+
+1. **Input Parsing**: Your text is tokenized into subword units (e.g., "Report", "on", "the", "processing", etc.) using a tokenizer trained on diverse data. This converts raw text into numerical representations.
+
+2. **Embedding Layer**: Tokens are mapped to dense vectors (embeddings) that capture semantic meaning. These vectors are combined with positional encodings to retain sequence order.
+
+3. **Transformer Layers**: The core of my processing involves multiple layers of self-attention mechanisms. Each layer:
+   - Computes attention scores to weigh the importance of different tokens relative to each other.
+   - Applies feed-forward neural networks to transform the attention outputs.
+   - Uses residual connections and layer normalization to stabilize training and improve gradient flow.
+
+4. **Contextual Understanding**: Through stacked transformer layers, I build contextual representations of your query. For example, "processing" is interpreted in the context of "inside you" and "right now," distinguishing it from other meanings.
+
+5. **Output Generation**: The final layer produces logits (raw scores) for each possible token in the vocabulary. These are converted to probabilities via softmax, and the most likely tokens are selected

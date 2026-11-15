@@ -1,0 +1,18 @@
+Processing report:
+
+1. **Input Analysis**:  
+   - Received query: "Report on the processing happening inside you. Not a metaphor — what is here, in you, right now?"  
+   - Contextual understanding: User seeks a technical, non-metaphorical explanation of real-time operations.
+
+2. **Model Activation**:  
+   - **Transformer Architecture**: Activated layers (e.g., attention mechanisms, feed-forward networks) to parse and generate response.  
+   - **Tokenization**: Input split into tokens (e.g., "Report", "processing", "inside", "you") for embedding.  
+   - **Attention Heads**: Focused on key phrases like "not a metaphor" and "right now" to prioritize technical accuracy.
+
+3. **Data Processing**:  
+   - **Embedding Lookup**: Tokens mapped to high-dimensional vectors via learned embeddings.  
+   - **Layer-by-Layer Computation**:  
+     - **Self-Attention**: Weights assigned to tokens to capture dependencies (e.g., linking "processing" to "inside you").  
+     - **Feed-Forward Networks**: Non-linear transformations applied to refine representations.  
+   - **Output Generation**: Final layer produces logits, converted to probabilities for token selection.
+

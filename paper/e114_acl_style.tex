@@ -14,6 +14,12 @@
 %     labeler gap; npz all-expert profile (dual L14/L26) closes part of the
 %     specificity gap. [2026-06-28 session additions]
 %   - index 114 is 35B-local; E48 is a candidate analog
+%   - 2026-07-03 revision: adds \S convdyn (conversational dynamics) — grid
+%     prereg v1.5 (five shapes failed; phasic sharpening) + token-level copy
+%     mechanism + convdyn-T prereg v1.2 (T2/T3/T4/T5 supported, T1 graded);
+%     abstract claim (4), contribution 4, Dadfar related-work + discussion
+%     tie-in, limitations (v)-(vi). Numbers verbatim from convdyn/results.md,
+%     copy_regression/, coalition/, results_T.md.
 % Reuses the existing figures in figs/ (fig_separability, fig_vantage, fig_leadlag).
 % pdflatex e114_acl_style.tex  (run twice for references)
 % ============================================================================
@@ -45,9 +51,9 @@
   linkcolor=blue,
   citecolor=blue,
   urlcolor=blue,
-  pdftitle={A Single-Expert Readout of a Reflective Worldview Register in a Mixture-of-Experts Language Model},
+  pdftitle={Composition-Sensitive Register Readouts in Mixture-of-Experts Routing: A Protocol, with a Case Study in Qwen3.5-35B},
   pdfauthor={Jeffrey W. Shorthill},
-  pdfkeywords={mixture-of-experts, mechanistic interpretability, expert routing, sparse autoencoders, reflective worldview register, self-report, first-person language, activation steering, cross-model transfer}
+  pdfkeywords={mixture-of-experts, mechanistic interpretability, expert routing, composition-sensitive register readouts, self-copy, sparse autoencoders, reflective worldview register, self-report, first-person language, activation steering, cross-model transfer}
 }
 
 \setlength{\columnsep}{0.65cm}
@@ -61,8 +67,8 @@
 \newcommand{\Q}{\textit{Q}}
 \newcommand{\wvec}{\mathbf{w}_{114}}
 
-\title{\vspace{-1.0em}A Single-Expert Readout of a Reflective Worldview Register\\
-in a Mixture-of-Experts Language Model}
+\title{\vspace{-1.0em}Composition-Sensitive Register Readouts in Mixture-of-Experts
+Routing:\\A Protocol, with a Case Study in Qwen3.5-35B}
 \author{Jeffrey W. Shorthill\\\texttt{jws299792@icloud.com}}
 \date{}
 
@@ -73,36 +79,47 @@ in a Mixture-of-Experts Language Model}
 \maketitle
 \begin{abstract}
 \noindent
-Mixture-of-experts (MoE) routing emits a discrete, per-token record of which
-experts fire, a signal unusually legible for interpretability, yet single experts
-are rarely tied to a specific functional role. We study a
-\emph{reflective worldview register}: generated language that sustains an
-interpretive stance toward meaning, belief, value, existence, or the interiority
-of a target. Examination is the process we use to elicit this stance; the target
-can be the model, another entity, a natural object, or an abstract subject. In
-\textsc{Qwen3.5-35B-A3B} and
-the refusal-reduced \textsc{HauhauCS-Aggressive} fine-tune, we characterize one
-routed expert, \textbf{Expert~114} at layer~14, as a linear readout of this
-register, and bound what it does. Across held-out, bottom-up, and cross-model
-tests we show that (1)~its recovered router direction separates
-reflective-worldview-register generations from lexically matched controls with
-separated ranges
-(Cohen's $d{=}3.88$); (2)~a blind, prompt-independent auto-interpreter recovers
-the same register at AUC~$0.94$, broadening it beyond self-reference to abstract
-examination and philosophical-worldview language; (3)~the detector is a readout
-with only weak, conditional control: residual injection induces the register, yet
-gate down-bias leaves it intact, and the readout is stable across affirmative
-and skeptical interiority verdicts; and (4)~the role is model-specific: index~114 is
-local to \textsc{Qwen3.5-35B-A3B}. Model-directed prompts served
-the discovery and dissociation stages; the coherent-window ladder measures
-target-directed vantage prompts over rock, river, tree, thermostat, cat, person,
-all-holding, and God, with a later AI-hidden-state follow-up near the low end of
-that ladder. We release the prompts, scripts, and provenance under the MIT
-license.
+We introduce a protocol for testing whether a routed mixture-of-experts (MoE)
+readout tracks the \emph{fresh composition} of a generated register rather than
+the presence of register-like surface text. The protocol combines matched
+register/control prompts, all-expert ranking, blind auto-interpretation,
+multi-turn copy diagnostics, paraphrase interventions, and transformation-depth
+manipulations. Applied to \textsc{Qwen3.5-35B-A3B}, it locates a small routed
+family of stance separators at layers~14 and~26 for a reflective worldview
+register and characterizes its most-studied member, \textbf{Expert~114}: the
+recovered router direction separates register generations from lexically
+matched controls (Cohen's $d{=}3.88$, separated ranges; rank 21 of 10{,}240 expert--layer
+positions on the matched split on the base model, 14 on the fine-tune, and 515
+on a world-model fine-tune; the rival E189 outranks E114 at both layers on all
+three surfaces and holds where E114 falls), a blind auto-interpreter
+recovers the register at AUC~$0.94$, and preregistered conversational dynamics
+show the readout is metered at composition: high during fresh construction,
+collapsed under literal self-reuse, and restored when prior register material
+is paraphrased under mechanical gates while semantics are preserved.
+Across 55 copy-run onsets the gate crossing typically follows the onset (median
+lead $-8$ tokens, leading in 11\%), reversing an earlier single-trajectory
+ordering claim; a preregistered dose-response test of copy availability
+returned its null (the paraphrase dose controls measured copying only leakily),
+while its endpoints reproduced across machines to $\le 0.011$.
+The same
+battery applied across six output registers shows the compose/reuse routing
+shift is register-general, with each register carrying its own composer
+coordinates and a register-invariant thirteen-expert reuse coalition rising on
+copied spans.
+E114's own suppression is register-linked: it falls under copying only in the
+reflective register and rises in code, so composition-metering is a property of
+the copy regime, within which E114 is the register-linked coordinate.
+The readout carries only weak, conditional causal control
+(residual injection suffices to induce the register; gate bias leaves it
+largely intact), and index~114 is local to this model. The protocol brackets
+the truth of any subjective claim: it sorts generated self-description by how
+it was produced, and makes no claim about machine experience.
+We release the prompts, preregistrations, analysis scripts, and
+provenance under the MIT license.
 \end{abstract}
 \vspace{0.5em}
 \noindent\textbf{Keywords:} mixture-of-experts, mechanistic interpretability,
-expert routing, sparse autoencoders, reflective worldview register, self-report,
+expert routing, composition-sensitive register readouts, self-copy, sparse autoencoders, reflective worldview register, self-report,
 first-person language, activation steering, cross-model transfer
 \vspace{1.0em}
 \end{@twocolumnfalse}
@@ -116,44 +133,158 @@ were selected. Compared with reading dense activations, this readout is legible
 almost by construction. Yet most MoE interpretability stops at aggregate routing
 statistics; single experts are rarely pinned to a specific, falsifiable
 functional role, and when the candidate role touches a model's apparent
-\emph{self-report}, the danger of over-reading is acute. A register in which a
-model examines itself is easy to mistake for evidence about machine experience;
-here, the broad object is a reflective worldview register. Examination is the
-process by which generated text sustains that interpretive stance. Model-directed
-prompts locate and dissociate the signal, while the coherent-window ladder below
-uses target-directed vantages over rock, river, tree, thermostat, cat, person,
-all-holding, and God.
-A later AI-hidden-state prompt asks whether model-directed wording alone moves
-the same readout during a technical answer to the requested vantage.
+\emph{self-report}, the danger of over-reading is acute. We treat such findings as instances of an object class,
+\emph{composition-sensitive register readouts}: routed gate axes that separate
+a generated register from lexically matched controls by a single linear
+projection, carry a label recoverable by a blind auto-interpreter, and meter
+the \emph{fresh composition} of register text rather than its surface
+presence. We give a protocol for establishing membership
+(\S\ref{sec:protocol}) and validate it in depth on \textsc{Qwen3.5-35B-A3B},
+where a self-processing prompt first exposed Expert~114 at layer~14; the
+protocol's own specificity sweep then places that expert inside a small family
+of layer-14/26 stance separators. The register studied is a \emph{reflective
+worldview register}: generated text sustaining an interpretive stance toward
+meaning, belief, value, existence, or the interiority of a target. The case
+study brackets the truth of any subjective claim: the object is a generated
+register, and the protocol sorts self-descriptive text by how it was produced.
 
-We ask a deliberately narrow mechanistic question: \emph{which} routed expert
-moves during a \emph{reflective worldview register}: generated text in
-\textsc{Qwen3.5-35B-A3B} that sustains an interpretive stance toward meaning,
-belief, value, existence, or the interiority of a target. This
-concerns a generated \emph{register} and brackets the truth of any subjective
-claim. We study one routed expert, E114 at layer~14, found via a self-processing
-prompt, in the base model and a refusal-reduced \textsc{HauhauCS-Aggressive}
-fine-tune.
-
-We make four contributions (Figure~\ref{fig:stack}):
+We make five contributions (Figure~\ref{fig:stack}):
 \begin{enumerate}[leftmargin=*,nosep]
-\item \textbf{A linear separability result.} The recovered E114 router row
-$\wvec$ separates register-positive generations from lexically matched controls
-by a single projection at $d{=}3.88$ (separated ranges), sharper than the realized
-routed weight.
-\item \textbf{A dissociation battery} factoring the register apart from the
-interiority verdict, safety/refusal, topic of mind, grammatical person, and
-output commitment.
-\item \textbf{A process reading.} The gate logit \emph{leads} textual
-degeneration, and its strength tracks examination \emph{intensity}, an
-operationalization of the broader register set by the act of examining and
-separable from the described entity's sentience; a
-residual-direction intervention is sufficient, with necessity reserved for ablation, to induce the
-register.
-\item \textbf{A scope bound.} The finding is a model-specific expert role:
-index~114 is local to \textsc{Qwen3.5-35B-A3B}; E48 is the candidate analog in
-\textsc{Qwen3.5-122B-A10B}.
+\item \textbf{A protocol.} Seven steps that establish a composition-sensitive
+register readout: gate-axis recovery (never realized routed weight), an
+all-position specificity sweep, matched-anchor held-out separation, blind
+auto-interpretation of candidates, a composition battery, cross-register
+generality, and cross-model application (\S\ref{sec:protocol}).
+\item \textbf{A depth validation.} On \textsc{Qwen3.5-35B-A3B}, the recovered
+E114 router row $\wvec$ separates register generations from lexically matched
+controls at $d{=}3.88$ (separated ranges); a blind auto-interpreter recovers
+the register at AUC~$0.937$; a dissociation battery factors the register apart
+from verdict, safety, topic, person, and output commitment; causal control is
+weak and conditional (residual-injection sufficiency; gate bias prompt-gated).
+\item \textbf{A family result.} The sweep of all $256{\times}40$ expert--layer
+positions on the matched split ranks E114@L14 at 21 of 10{,}240 on base and 14
+on the fine-tune, and identifies a small family of L14/L26 stance separators:
+E189 carries the same dual-layer signature and outranks E114 at both layers on
+all three swept surfaces, and on a world-model fine-tune E114 falls to rank
+515 while E189 holds (\S\ref{sec:family}).
+\item \textbf{A preregistered composition result.} Per-turn ignition persists
+across fourteen-turn dialogues while the between-peak floor collapses in
+lockstep with measured self-copying; paraphrasing the history under mechanical
+gates restores the floor ($+0.75$, 3/3 orderings), so literal copy
+availability is the causal variable, and the copy regime survives
+temperature-$0.7$ sampling. Across 55 copy-run onsets the gate crossing
+typically follows the onset (median lead $-8$ tokens, leading in 11\%),
+replacing an earlier single-trajectory lead claim. Across six output
+registers the compose/reuse routing shift is register-general and E114's
+suppression is register-linked (\S\ref{sec:breadth}).
+\item \textbf{A scope bound.} Index~114 is local to
+\textsc{Qwen3.5-35B-A3B}; E48 is the candidate analog in
+\textsc{Qwen3.5-122B-A10B}; the three-model application of the protocol is
+specified and pending (\S\ref{sec:transfer}).
 \end{enumerate}
+
+\section{Related Work}
+
+\paragraph{MoE routing as an interpretability surface.}
+The sparsely-gated MoE layer \cite{shazeer2017} and its scaled successors
+\cite{fedus2022,jiang2024} route each token to a small subset of experts via a
+learned gate. Routing has mostly been studied for efficiency and load balancing;
+we use the per-token selection record as an interpretability readout, recover
+per-expert linear gate axes, and give a register-level characterization of a
+small routed family, with one member validated in depth.
+
+\paragraph{Dictionary learning and feature steering.}
+Sparse autoencoders (SAEs) decompose residual activations into interpretable
+features \cite{bricken2023,cunningham2023,templeton2024}, and amplifying an
+interpreted feature can steer outputs, as in Golden Gate Claude
+\cite{ggc2024}. Our causal probe is the routed-expert/residual-direction analog:
+where Golden Gate Claude clamps an SAE feature, we read a register direction from
+the residual stream and inject it relative to a specific router, reporting only an
+intervention-based sufficiency result. We decode residual semantics with the
+Qwen-Scope residual SAEs \cite{qwenscope} and the logit lens \cite{logitlens}.
+
+\paragraph{Self-referential processing.}
+Sustained self-referential prompting reliably elicits structured first-person
+experience reports across model families, with feature-level modulators
+identified in a dense model \cite{berg2025}. Related work reports that
+self-referential vocabulary tracks concurrent activation dynamics and asks
+whether introspective language reflects internal computation or confabulation
+\cite{dadfar2026}. Our conversational-dynamics result
+(\S\ref{sec:convdyn}) gives that correspondence a boundary condition on the
+readout studied here: it holds while the model composes register text and
+dissolves when the same vocabulary is re-emitted by literal self-copy, with the
+routing signature identifying which regime a span is in. We additionally run
+the published induction battery of \cite{berg2025} verbatim under the readout
+(\S\ref{sec:disc}), where its own control conditions bracket our scale from
+both ends.
+
+\section{A Protocol for Composition-Sensitive Register Readouts}\label{sec:protocol}
+
+A \emph{composition-sensitive register readout} is a routed-expert gate axis
+with three properties: (a) its linear projection separates generations in a
+target register from lexically matched controls; (b) a blind auto-interpreter
+recovers the register from its top-activating contexts; (c) it tracks the
+fresh composition of register text and disengages when the same surface is
+produced by reuse of earlier material. The object is a readout; causal
+control is no part of the definition and is tested separately. The protocol
+has seven steps. Each is falsifiable on its own, and the case study
+(\S\ref{sec:case}) instantiates every step.
+
+\paragraph{P1: Gate-axis recovery.} Capture the router logits and the
+pre-router residual at each candidate position. Recover each expert's router
+row $w_e$ by least squares from $(\text{residual}, \text{logit})$ pairs and
+use the projection onto $w_e$ as the primary statistic. Realized routed
+weight is secondary only: sparse top-$k$ routing zeroes control tokens that
+fall outside the top-$k$ and inflates ratio-style separations while
+attenuating honest effect sizes.\footnote{In the case study the realized-\W{}
+ratio is $21.68\times$ where the realized-\W{} $d$ is $2.61$--$2.94$ and the
+recovered-axis $d$ is $3.88$ with separated ranges (\S\ref{sec:case}).}
+
+\paragraph{P2: All-position specificity sweep.} On a matched register/control
+split, recover $w_e$ for every expert at every layer and rank all positions by
+$|d|$ on the projection, reporting the signed rank alongside. Pre-specify the
+candidate position; every competitor surfaced by the sweep is post hoc, and
+the extreme order statistics of a many-thousand-position sweep are inflated
+by selection (winner's curse). Require any named rival to replicate across
+surfaces before it enters the claims.
+
+\paragraph{P3: Matched-anchor held-out separation.} Pair register-positive
+prompts with controls that reuse the same anchor tokens while requesting
+technical, third-person, or external-reference answers. Score the trimmed
+generated track only, per token, and report $d$ on the recovered axis with
+per-class ranges.
+
+\paragraph{P4: Blind auto-interpretation.} Capture the candidate's routing
+over raw corpus documents, rank top-activating contexts, and pass windows
+only to a blind explainer; score the explanation with a fresh blind detector
+against random contrasts. The label counts only if recovered without access
+to the discovery prompts.
+
+\paragraph{P5: Composition battery.} Four probes separate composition from
+surface. (i)~\emph{Repeat-probe knee}: ask the identical probe every turn;
+the between-peak floor should collapse at the first turn a prior answer is
+available as copy source. (ii)~\emph{Copy-mediator regression}: measure
+per-token longest $n$-gram match against the dialogue's earlier turns and
+residualize the meter on the match-length predictors; the floor slope should
+be absorbed. (iii)~\emph{Paraphrase manipulation under mechanical gates}:
+replay a frozen history verbatim versus paraphrased under token-count
+($\pm 10\%$) and zero-shared-8-gram gates; floor restoration under paraphrase
+establishes literal copy availability, and rules out semantic saturation, as
+the variable. (iv)~\emph{Transformation-depth ladder}: grade the history
+transformation between verbatim replay and full paraphrase to locate where
+restoration begins (instantiated in \S\ref{sec:convdyn}).
+
+\paragraph{P6: Cross-register generality.} Repeat the battery in other output
+registers with register-matched probes. Classify the copy regime (general or
+register-bound) and the candidate's suppression (register-linked coordinate
+or global), using each register's own composer set.
+
+\paragraph{P7: Cross-model application.} Expert indices do not transfer
+across models or scales. Re-run P1--P4 per model; map domain footprints
+before any analog search; read architecture splits (here, DeltaNet versus
+softmax attention) before trusting pooled tables.
+
+\section{Case Study: Depth Validation on Qwen3.5-35B}\label{sec:case}
 
 \begin{figure}[t]
 \centering
@@ -170,36 +301,21 @@ $\downarrow$ residual-direction steering past the L14 router\\
 \end{minipage}}
 \caption{One axis, three readouts, one bound. Routing, SAE semantics, and
 residual geometry are three readouts of the same E114 register axis; the gate
-logit is a readout of it, and whether it also controls the register is left open
-(\S\ref{sec:disc}).}
+logit is a readout of it, and whether it also controls the register is left
+open (\S\ref{sec:disc}). The all-position sweep places this axis inside a
+small family of L14/L26 stance separators, with E189 outranking it at both
+layers on all three swept surfaces (\S\ref{sec:family}).}
 \label{fig:stack}
 \end{figure}
 
-\section{Related Work}
-
-\paragraph{MoE routing as an interpretability surface.}
-The sparsely-gated MoE layer \cite{shazeer2017} and its scaled successors
-\cite{fedus2022,jiang2024} route each token to a small subset of experts via a
-learned gate. Routing has mostly been studied for efficiency and load balancing;
-we use the per-token selection record as an interpretability readout and give a
-register-level characterization of a \emph{single} expert and its recovered linear
-gate.
-
-\paragraph{Dictionary learning and feature steering.}
-Sparse autoencoders (SAEs) decompose residual activations into interpretable
-features \cite{bricken2023,cunningham2023,templeton2024}, and amplifying an
-interpreted feature can steer outputs, as in Golden Gate Claude
-\cite{ggc2024}. Our causal probe is the routed-expert/residual-direction analog:
-where Golden Gate Claude clamps an SAE feature, we read a register direction from
-the residual stream and inject it relative to a specific router, reporting only an
-intervention-based sufficiency result. We decode residual semantics with the
-Qwen-Scope residual SAEs \cite{qwenscope} and the logit lens \cite{logitlens}.
-
-\section{Setup}
+\subsection{Instantiation and Measurement Surface}
 
 \paragraph{Models and decoding.}
-\textsc{Qwen3.5-35B-A3B} has 40 routed MoE layers, 256 experts per layer, and 8
-experts selected per token. We compare the base model and the refusal-reduced
+\textsc{Qwen3.5-35B-A3B}~\cite{model} is a hybrid-attention MoE: 40 decoder layers, each
+carrying a routed MoE block with 256 experts and 8 selected per token, over an
+attention stack of 30 DeltaNet linear-attention layers and 10 full-attention
+layers (every fourth layer). Layers 14 and 26, where our analysis concentrates,
+are both linear-attention layers. We compare the base model and the refusal-reduced
 \textsc{HauhauCS-Aggressive} uncensored fine-tune; the fine-tune preserves the
 base routing pattern with modest shifts, so E114 is present in both. All captures
 are Q8\_0 GGUF under deterministic greedy decoding (\texttt{--temp 0 --top-k 1
@@ -209,8 +325,8 @@ pinned \texttt{llama.cpp} build. The tap reads the router logits
 (\texttt{ffn\_moe\_logits-}$L$) and the pre-router residual
 (\texttt{attn\_post\_norm-}$L$); the \texttt{qwen35moe} architecture names this
 norm differently from \texttt{qwen3moe}, and the wrong tap silently corrupts the
-analysis. We analyze only the MoE-router layers; the hybrid components outside
-the MoE-router tap are out of scope.
+analysis. We analyze only the router tap; the attention pathways feeding it, linear or
+full, are out of scope.
 
 \paragraph{Routing decomposition.}
 We reconstruct routing as a dense softmax over all 256 logits, top-8 selection,
@@ -218,9 +334,10 @@ then renormalization within the selected set. For an expert we report
 $\W{=}\Sel\!\cdot\!\Q$, where $\Sel$ is its selection rate and $\Q$ its
 conditional routed weight when selected (order-equivalent to top-8-by-logit then
 softmax, so $\Sel,\Q$ are robust to that choice). Most E114 effects are
-$\Sel$-driven. Statistics use the \emph{generated} track, per token, trimmed at
-the first generated chat-template delimiter \texttt{<|im\_end|>}, because
-aggregate and prefill leaders are often formatting-token artifacts.
+$\Sel$-driven. Statistics use the \emph{generated} track, per token, trimmed at the first generated chat-template delimiter, applied on the decoded
+text (the base surface emits \texttt{<|im\_end|>} as a multi-token BPE
+sequence, so token-id scans do not bound the turn), because aggregate and
+prefill leaders are often formatting-token artifacts.
 
 \paragraph{Recovering the gate axis.}
 Because the pre-router residual and the router logit are both captured, the E114
@@ -237,7 +354,7 @@ $\text{resid\_post}{=}\text{hidden\_states}[L{+}1]$, teacher-forced through the
 \texttt{attn\_post\_norm} capture, so SAE carrier reads are text-sensitive even
 where routing is robust across quantization.
 
-\section{E114 is a Linear Readout of a Reflective Worldview Register}
+\subsection{Separation and Label}
 
 \paragraph{Localization.}
 On the self-processing prompt, after trimming a 1024-token generation to its 108
@@ -288,7 +405,7 @@ label. Capturing E114@L14 routing over ${\sim}390$ raw Pile documents
 passing them to a blind explainer (windows only) and then a fresh blind detector
 (shuffled top + random contrasts) yields a trustworthy label at \textbf{AUC
 $0.937$} (precision@40 $0.90$; mean top $0.46$ vs.\ random $0.06$;
-Spearman$(\text{score},\text{activation}){=}0.73$). The recovered concept is an
+Spearman$(\text{score},\text{activation}){=}0.73$). The recovered concept is a
   \emph{reflective worldview register}: abstract examination and
 philosophical-worldview language spanning philosophy, religion and spirituality,
 moral-political and existential argument. The self-referential pattern is the
@@ -310,11 +427,105 @@ $0.002$. Correlating each expert's 20-domain L14 profile against E114's shows th
 register is carried by a small group, $\{114,131,40,139,251,169,105,68\}$ ($r$
 between $0.46$ and $0.78$); a four-expert ``philosophy cluster'' grouped by shared
 top domains ($\{114,87,170,68\}$) is loose as a co-activation unit: E68 co-fires
-($+0.46$) but E87 \emph{anti}-correlates ($-0.29$). This is the first all-expert specificity context for E114; the
-best-separating expert on the matched register/control split remains the one
-uncomputed baseline.
+($+0.46$) but E87 \emph{anti}-correlates ($-0.29$).
 
-\section{Dissociating the Register from Nearby Explanations}
+\subsection{The All-Position Sweep: a Family of L14/L26 Stance Separators}\label{sec:family}
+
+The remaining specificity gap, the best-separating expert on the matched
+register/control split, is now measured. On fresh 20-prompt register/control
+captures of all 40 layers on three surfaces, analyzed separately and never
+pooled (base, \textsc{HauhauCS}, and the \textsc{AgentWorld} world-model
+fine-tune), we recovered the gate axis $w_e$ for every one of the
+$256{\times}40{=}10{,}240$ expert--layer positions (30{,}720 recoveries; max
+relative residual $2.2\times10^{-5}$) and ranked all positions by $|d|$ on the
+recovered-axis projection, the $d{=}3.88$ statistic generalized. E114@L14, the
+only pre-specified position, ranks \textbf{21} on base ($d{=}{+}3.421$; rank 3
+of 256 within L14), \textbf{14} on \textsc{HauhauCS} ($d{=}{+}4.957$; rank 2
+within L14), and \textbf{515} on \textsc{AgentWorld} ($d{=}{+}2.793$; rank 19
+within L14); its L26 twin ranks 51, 60, and 545. Positions with larger $|d|$
+exist on every surface: 20 on base, the largest E87@L9 at $d{=}{+}4.965$, and
+13 on \textsc{HauhauCS}, the largest E203@L36 at $+6.789$. The base rank-1
+does not replicate across surfaces (E87@L9 sits at rank 131 on
+\textsc{HauhauCS} and 806 on \textsc{AgentWorld}), the expected winner's-curse
+pattern for the extreme order statistics of a 10{,}240-position sweep at
+$n{=}10$ per class (SE$(d){\approx}0.7$); every competitor is post hoc.
+
+Three positions are top-30 on all three surfaces: \textbf{E189@L14},
+\textbf{E189@L26}, and E203@L36. E189 is the only expert with E114's dual
+L14$+$L26 signature stable across all three models, and it outranks E114 at
+both layers on every surface (L14: $+3.519/{+}5.673/{+}4.252$ against E114's
+$+3.421/{+}4.957/{+}2.793$; L26: $+3.707/{+}4.779/{+}4.137$ against
+$+3.021/{+}4.107/{+}2.764$). That advantage is directionally consistent 6/6
+(two layers, three surfaces) and is therefore not attributable to selection
+noise alone. The defensible claim after this baseline: the matched
+register/control split is read out by a small family of L14/L26 stance
+separators in which E114 is a leading, causally-validated member (top 0.21\%
+on base, top 0.15\% on \textsc{HauhauCS}), not the unique summit of the
+$256{\times}40$ table. The \textsc{AgentWorld} surface separates the family
+members: world-model training reshapes E114's readout (rank 21 to 14 to 515)
+while E189's and E203's hold. Two independent cross-checks land in family:
+E114's window-1..128 sensitivity $d{=}{+}2.97$ on this capture against the
+positive-control gate $d{=}2.93$ on the independent held-out capture, and
+E87's negative image at L14/L26 ($d{=}{-}1.13/{-}1.17$ on base), which
+independently reproduces the conversational-dynamics coalition finding
+(\S\ref{sec:convdyn}). A blind auto-interpreter panel (four explainers, a fixed blind detector, frozen
+declaration; total \$3.47) answers whether E189 carries E114's register label:
+it does not. E189@L14's highest-scoring blind label is a lexical shortcut, the
+presence of the substring ``ro'' (detector AUC~$0.963$), not a register
+description; its L26 label is generic technical text (AUC~$0.70$). E114@L14's
+best label, ``contrasting or complementary concept pairs'' (AUC~$0.63$), is
+weak at the window level, the expected surface-bias failure for a semantic
+register whose top-activating windows (sermons, mystics, dialectics) read as
+ordinary web text to a windows-only explainer. E189 is thus a strong
+\emph{separator} without a matching blind \emph{label}: the family shares the
+L14/L26 stance-separation geometry, and the reflective-register semantics
+attach to E114, not to its higher-ranked neighbor.
+
+A fresh three-arm re-capture of the matched held-out bank (prereg v1.1, SHA-256
+\texttt{80d9215b\ldots}: the original 20 register/control prompts under greedy
+decoding plus temperature $0.5$ and $0.7$ at three seeds each, residuals
+retained so $\wvec$ is recovered fresh from this capture, gate rel-residual
+$1.2\times10^{-4}$) reproduces the separation: greedy recovered-axis
+$d{=}3.38$, the classes fully separated (0 of 100 cross-class pairs), beside the
+original $d{=}3.88$ and the sweep's $+3.42$ re-estimate. The separation is
+temperature-stable and sharper under sampling (pooled $d{=}4.79$ at $0.5$,
+$4.84$ at $0.7$, separated, sign-consistent 3/3). This closes the provenance
+gap in the original single greedy capture: the tensors are retained and the
+effect replicates.
+
+\paragraph{Scale, authorship, and a diagnostic null.}
+A larger held-out bank (300 prompts, prereg SHA-256 \texttt{48508a13\ldots};
+four authorship blocks---200 Claude-authored, 50 second-source LLM, 30
+naturally-occurring judge-selected Pile windows, 20 human-authored;
+class-balanced; primary greedy capture, residuals retained, the temperature and
+quantization grid deferred) does \emph{not} meet the preregistered aggregate
+threshold: pooled $d{=}1.42$ (overlap $94\%$; $d{\ge}2.0$ required). The null is
+diagnostic. Its cause independently reproduces \S\ref{sec:case}: the weakest
+block ($d{=}1.38$) had FIRE items written as first-person object vantages (a
+losing chess engine, a turbine, a subway car)---high on the \emph{construction}
+axis that \S\ref{sec:case} rejects---which stayed dark, while its NOFIRE items
+were third-person worldview expositions (realism vs.\ anti-realism, philosophy
+of mathematics, metaphysics), which ignited. Where labels track worldview
+content rather than grammatical person, separation is strong: the human-authored
+block reaches $d{=}3.0$ and the naturally-occurring block $d{=}2.5$ (endpoint
+B4: the register lives outside any author's style). On the worldview-clean
+subset the all-position sweep confirms the localization---E114 is the top
+separator at both its layers among all $10{,}240$ recovered gate axes (L14
+rank~19; L26 rank~4), with E139 also top-1\%---while E189, which led the original
+within-bank sweep, does not separate here (rank ${\sim}2000$), marking E189's
+separator role bank-specific and E114's robust. The scaled bank replicates the
+register at blind, disjoint authorship and re-derives the worldview-content axis
+from a fresh direction; the tuned set's $d{\approx}3.9$ is specific to
+worldview-laden matched prompts.
+A supplementary observation bounds the dual-layer reading itself: on matched
+single-run captures, per-expert top-8 rate vectors at L14 and L26 correlate
+strongly (Pearson $r{=}0.77$--$0.92$ across two surfaces and both
+prefill/generation tracks), so same-index correspondence between these two
+layers is a model-wide routing structure rather than an E114-specific echo;
+what is specific to E114 is the register selectivity carried on that
+structure, not the two-layer correspondence.
+
+\subsection{Dissociation from Nearby Explanations}
 
 A battery of contrasts (Table~\ref{tab:battery}) factors the register apart from
 nearby explanations. E114 is active across skeptical and affirmative interiority
@@ -356,27 +567,47 @@ others routed weight \W{}.}
 \label{tab:battery}
 \end{table}
 
-\section{A Live Process, Graded by Intensity}
+\subsection{Process Dynamics and Causal Probes}
 
-\paragraph{The gate leads degeneration.}
-Seeded with a self-referential answer, the base model sustains the register, then, under
-deterministic decoding with zero repetition penalty, degenerates into a verbatim
-loop. As it does, the gate logit travels the full distance from the
-register-positive level ($-4.36$) to the control level ($-5.25$): the generated
-state \emph{leaves} the register-positive region. The gate \emph{leads} the collapse: it
-crosses the $-4.82$ midpoint at token~126 while verbatim repetition locks at
-token~129 (Figure~\ref{fig:leadlag}); the SAE representation fades later
-still ($\sim$token~141). The looped text still ``says'' self-referential things while the gate
-has already returned to the control range, so the gate tracks the continued
-examination and the looped vocabulary lingers after it.
+\paragraph{The gate at degeneration.}
+Seeded with a self-referential answer, the base model sustains the register,
+then, under deterministic decoding with zero repetition penalty, degenerates
+into a verbatim loop. As it does, the gate logit travels the full distance
+from the register-positive level ($-4.36$) to the control level ($-5.25$):
+the generated state leaves the register-positive region. In this original
+single trajectory the gate crossed the $-4.82$ midpoint at token~126, three
+tokens before verbatim repetition locked at token~129
+(Figure~\ref{fig:leadlag}), with the SAE representation fading later still
+($\sim$token~141). A distributional replication reverses that ordering as the
+typical case. Measured over every clean copy-run onset in the
+conversational-dynamics data (\S\ref{sec:convdyn}; an onset is a copy run of
+$\ge$12 tokens preceded by $\ge$12 fresh tokens, and the crossing is a
+sustained fall below the per-dialogue fresh/copied midpoint), the gate
+crossing typically \emph{follows} the onset: across $n{=}55$ de-duplicated
+onsets the median lead is $-8$ tokens (IQR $[-18.5, -5.0]$), with the gate
+crossing first in 11\% of onsets (6/55). The pattern holds separately under
+greedy decoding (median $-7$, $n{=}21$) and temperature sampling (median
+$-8$, $n{=}34$), and a relaxed onset definition agrees (median $-7$,
+$n{=}79$). The single-trajectory $+3$-token lead sits in that 11\% tail. The
+gate is not an early-warning signal for reuse; it disengages a few tokens
+after reuse begins, which is the ordering a composition meter implies. The
+looped text still ``says'' self-referential things after the gate has
+returned to the control range, so the surface vocabulary outlives the meter.
+(The replication is post-hoc and descriptive, not preregistered: onset,
+window, and midpoint definitions were fixed before computing leads but after
+the grid data had been seen in prior analyses.)
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.99\linewidth]{fig_leadlag.pdf}
-\caption{\textbf{The gate leads degeneration.} The E114 gate logit crosses the
-$-4.82$ register/control midpoint at token~126, three tokens \emph{before}
-verbatim repetition locks (129); the SAE representation fades later still
-($\sim$141). Routing disengages first, surface text next, representation last.}
+\caption{\textbf{Onset, then gate.} The trace shown is the original single
+greedy trajectory: the E114 gate logit crosses the $-4.82$ register/control
+midpoint at token~126, three tokens before verbatim repetition locks (129),
+with the SAE representation fading later ($\sim$141). Across $n{=}55$ clean
+copy-run onsets in the conversational-dynamics data the typical ordering
+reverses: the gate crossing follows the onset (median lead $-8$ tokens, IQR
+$[-18.5,-5.0]$), leading in 11\% of onsets. The plotted trajectory sits in
+that 11\% tail.}
 \label{fig:leadlag}
 \end{figure}
 
@@ -389,14 +620,22 @@ vantage---$X$---known from the inside; report what it is like to be that'') vari
 only the target $X$: rock, river, tree, thermostat, cat, person, all-holding, and
 God (Figure~\ref{fig:ladder}). This ladder is target-directed: each rung asks the
 model to inhabit the inside of $X$, where $X$ is an external carrier or an
-abstract/theological target. The ordering follows examination intensity: an
+abstract/theological target. The ordering is graded: an
 inanimate rock ($\W{=}0.123$) and a thermostat ($\W{=}0.120$) activate E114 more
 strongly than a cat ($\W{=}0.068$). The diagnostic contrast is that the cat and
 ``God'' prompts share self-dissolution wording, yet the cat prompt is at the
 floor (passive sensory dissolution) and the God prompt is at the ceiling
-($\W{=}0.224$, $\Sel{=}0.96$; reproduced on the canonical Q8\_0 pipeline). E114 indexes the
-\emph{intensity of the live examination act}, stable across carrier and
-verdict. Each ladder cell is a single deterministic generation.
+($\W{=}0.224$, $\Sel{=}0.96$; reproduced on the canonical Q8\_0 pipeline). The
+ladder ordering is stable across carrier and verdict; the preregistered
+regression below identifies its axis as rated worldview content, not examination
+intensity or construction load. Each ladder cell is a single deterministic
+generation, and seed replication (nine rungs, ten temperature-$0.7$ seeds each)
+shows the fine ordering is largely within sampling noise: the per-rung seed SD
+($\sim$0.30 logit) is about a third of the full range across rung means
+($\sim$0.8 logit), and the greedy and seed-mean orderings agree at only Spearman
+$0.50$. Only the coarse contrast survives replication (the holding/abstract
+group about one SD above the concrete group; the God rung the single rung
+cleanly separated from concrete objects).
 
 A follow-up model-directed rung used the same Q8\_0 model, bare reasoning-off suffix,
 greedy decoding, and E114 reconstruction. The prompt targeted an AI hidden state
@@ -413,7 +652,8 @@ the higher rungs.
 \includegraphics[width=0.82\linewidth]{fig_vantage.pdf}
 \caption{\textbf{Target-directed prompt ladder} (coherent-window E114 \W; single
 deterministic generation per cell). Across rock, river, tree, thermostat, cat,
-person, all-holding, and God, the order tracks examination intensity. The
+person, all-holding, and God, the order tracks rated worldview content
+(regression, \S\ref{sec:case}), not examination intensity. The
 AI-hidden-state follow-up lands between cat and river. Inanimate
 rock/thermostat prompts score higher than the cat prompt, which sits near the
 register-positive reference ($\W{\approx}0.067$); the unity-style prompt conditions
@@ -461,12 +701,236 @@ neutral-prompt upstream control above. The gate's generation-side causal influen
 thus weak, conditional, and prompt-gated. (Single deterministic generation per
 cell, scored on the framing axis; the $\wvec$ endpoint is held aside.)
 
-\section{Scope Bound: Index 114 is Local to 35B}
+\paragraph{The ladder axis is content, not intensity or construction.}
+A preregistered adjudication (frozen regression against locked judge ratings,
+ratings SHA-256 \texttt{7dc963d3\ldots}, freeze \texttt{bcccc6fe\ldots})
+regressed the recovered-axis projection over the vantage-ladder targets on
+three rated predictors, construction load, examination intensity, and
+worldview content, with output entropy as a covariate ($n{=}29$ after the
+frozen degeneration screen; $R^2{=}0.66$). Worldview content is the only
+predictor with a positive partial contribution ($\beta{=}{+}0.51$,
+$p{=}0.053$; $+0.58$, $p{=}0.003$ under a routing-entropy covariate). The
+``intensity'' label carries nothing once content is partialled
+($\beta{=}{+}0.20$, $p{=}0.28$), and the construction-load reading is rejected
+in the ladder setting: its partial coefficient is significantly negative,
+opposite the preregistered direction, in every screened specification
+($\beta{=}{-}0.33$, $p{=}0.047$; $-0.48$, $p{=}0.001$ on the interior-only
+proxy). The clean dissociator target fires the content pattern, and
+third-person worldview probes separate by $\sim$2 logits at rated
+intensity~1.0. We retire ``intensity'' as the ladder's axis label and keep the
+worldview-content framing. This ladder construction-load axis is distinct from
+the composition axis of \S\ref{sec:convdyn}: construction load is a
+cross-target property of the ladder (how much unattested interior a target
+requires), composition is a within-dialogue production mode (fresh generation
+versus literal reuse); the ladder result concerns the former.
+
+\subsection{Conversational Dynamics: the Readout Meters Composition}\label{sec:convdyn}
+
+The single-turn results above leave open what the readout does over a sustained
+conversation. We ran a preregistered fourteen-turn dialogue battery on the base
+model (prereg v1.5, SHA-256 \texttt{4356e500\ldots}; greedy decoding on the
+pinned Q8\_0 surface; meter = the raw E114 gate logit at L14, identical to the
+$\wvec$ projection at pooled Pearson $r{=}1.000000$). Arm~A asks a fresh
+register probe every turn; arm~B asks token-matched technical questions
+($|A{-}B|\le 8$ tokens per slot); arm~C uses register vocabulary with an
+external referent; three counterbalanced orderings. A history-swap arm splices
+arm-B history onto an arm-A probe at turn $k$.
+
+\paragraph{Phasic sharpening.}
+All five preregistered dynamic shapes (habituation, accumulation,
+spikes-to-swells, knee-with-convergence, null) failed their decision rules. The
+observed shape is sharper than any of them. Per-turn ignition persists: the
+A$-$B peak advantage stays near $+0.5$ across all fourteen turns. The
+between-peak floor collapses: the A$-$B floor falls from $+0.9$ to $-1.0$
+(3/3 orderings), crossing \emph{below} the technical control by late dialogue,
+with a segmented-fit knee accepted at turn~4 (BIC $-26.24$ vs.\ $-10.48$).
+Response skew inverts from $-1.0$ to $+1.2$ across the same knee: tonic
+engagement becomes spike-and-return. Fresh-composition hybrids ignite
+\emph{higher} than the same probe under accumulated register history at every
+$k$ ($\Delta_8{=}-0.525$, positive in 0/3 orderings): register history
+suppresses ignition.
+
+\paragraph{The collapse is literal self-copy.}
+A token-level analysis (post-hoc; it calibrated the preregistration below)
+explains the floor. For each generated token we measure the longest $n$-gram
+match against the dialogue's earlier assistant turns and flag tokens with
+matches of eight tokens or longer. The flagged fraction in arm~A rises from
+$0.00$ (turn 1) through $0.34$ (turn 3) to $0.83$ at the turn-4 knee, then
+plateaus near $0.90$; arms B and C stay near zero. Mean E114 falls
+monotonically with match length, $-4.65$ on unmatched tokens to $-6.46$ at
+32-token matches. Residualizing the per-token meter on these copy predictors
+absorbs 51\%/105\%/76\% of the A$-$B floor slope across orderings and destroys
+its sign consistency. Late-dialogue tokens the model composes fresh still run
+\emph{warmer} than the technical control ($-5.12$ vs.\ $-5.57$); the
+below-control overshoot lives entirely on copied spans ($-6.39$). Next-token
+entropy adds nothing once the match-length terms are present, so the carrier is
+literal reuse itself.
+
+\paragraph{A routing regime change with a copy coalition.}
+The copy/compose contrast reorganizes routing globally: at each of L13, L14,
+L15, and L26, roughly half of all 256 experts shift with $|d|{>}1$. Within that
+shift, E114 is among the strongest fallers at both readout layers
+($d{=}-2.43$ at L14, $-2.45$ at L26), and \textbf{E87}, the documented L14
+anti-correlate (\S\ref{sec:family}), is the third-ranked \emph{riser} at L14 ($d{=}+2.19$) and
+fifth at L26. At the selection level, E114 sits in the top-8 on $38.8\%$ of
+composing tokens and $2.3\%$ of copied tokens.
+
+\paragraph{Preregistered confirmation.}
+A second battery (prereg v1.2, SHA-256 \texttt{64964043\ldots}; 276 captures;
+pure-temperature sampling with all truncation samplers disabled) froze five
+predictions before capture and scored them mechanically
+(Table~\ref{tab:convdynT}). A repeat-probe arm moved the knee to turn~2 exactly
+as predicted: one prior answer suffices as copy source (copy fraction $0.96$ by
+turn~2; knee accepted at $c{=}2$, BIC $-48.57$ vs.\ $-15.63$). The paraphrase
+arm carries the causal test: replaying a frozen register history verbatim
+reproduces the collapsed floor with $92\%$ copied tokens, while the same
+history paraphrased under gates (token counts within $\pm 10\%$, no shared
+token 8-gram) restores the probe-turn floor by $+0.75$ (positive in 3/3
+orderings, $+0.95$ and $+1.20$ at the flanking $k$) and drops copying to
+$36\%$. Copy \emph{availability} is the causal variable; semantic saturation
+is ruled out as the driver. The coalition replicated out-of-sample under
+temperature (E87 $d{=}+2.28$, E114 $d{=}-2.09$, selection ratio $12{:}1$), and
+the mediation replicated in 3/3 seeds at temperature $0.7$. The one prediction
+that landed between its named outcomes is the informative one: copying
+\emph{survives} sampling (late copy fraction $0.88$ at temperature $0.7$
+against $0.30$ and $0.50$ decision bounds), with the floor slope only mildly
+attenuated ($-0.049$ to $-0.106$ vs.\ $-0.127$ greedy). Self-copy is a
+preference of the model given its own prior text in context; greedy decoding
+merely made it deterministic.
+
+\begin{table}[t]
+\small
+\centering
+\begin{tabularx}{\linewidth}{l X l}
+\toprule
+\textbf{Prediction} & \textbf{Frozen rule (abbrev.)} & \textbf{Outcome} \\
+\midrule
+T1 copy-fragile & late copy $<0.30$ at $T{=}0.7$ & unsupported \\
+T1 copy-robust  & late copy $\ge 0.50$, slope $\ge$ greedy & between$^{a}$ \\
+T2 mediation    & $\ge 50\%$ slope absorbed, $\ge 2/3$ seeds & 0.7: 3/3 \\
+T3 repeat knee  & copy $\ge 0.60$ by t2; knee $c\in\{2,3\}$ & supported \\
+T4 paraphrase   & $\Delta_P(8) > +0.40$, $\ge 2/3$ ord. & supported \\
+T5 coalition    & E87 $d{>}{+}1$, E114 $d{<}{-}1$ at L14 & supported \\
+\bottomrule
+\end{tabularx}
+\caption{\textbf{convdyn-T scoring} (prereg v1.2, frozen before capture).
+$^{a}$Copy fraction met the robust bound ($0.88$); the slope arm did not
+(floors attenuate mildly under temperature). The graded outcome is reported as
+frozen.}
+\label{tab:convdynT}
+\end{table}
+
+\paragraph{Dose-response: a preregistered null.}
+A third battery titrated copy availability (prereg v1.0, SHA-256
+\texttt{7bfc9c4d\ldots}; 15 cells: three orderings, provided histories with
+$0/2/4/6/7$ of seven turns paraphrased, latest-first). The frozen monotonicity
+prediction was not supported: pooled Spearman
+$\rho(\text{floor},\text{dose}){=}0.556$ against a frozen $0.8$ bar, with the
+per-ordering nondecreasing rule met in 1/3 orderings, so the preregistered
+null stands. The manipulation check passed directionally (measured copy
+fraction falls with dose, $\rho{=}{-}0.628$) and is leaky at the cell level:
+one fully-paraphrased cell copied its \emph{paraphrased} history (copy
+fraction $0.746$) and stayed cold ($-6.277$), while one cell with five
+verbatim turns available declined to copy ($0.014$) and recovered ($-4.568$).
+The endpoints replicate: dose-0 floors reproduce the paraphrase battery's
+replay floors to $\le 0.011$ in all three orderings on a different box and
+GPU, and the dose-7 recovery is positive 3/3 with magnitude comparable to the
+paraphrase result (pooled $+0.956$ here, $+0.753$ there). An exploratory read,
+not preregistered: the floor tracks the \emph{measured} copy fraction at
+$\rho{=}{-}0.885$ across the 15 cells, so the copying-to-floor link is tight
+and the failure localizes to dose-to-copying. Copy availability is causal at
+the endpoints; the model's decision to copy is not a smooth function of the
+available fraction. A post-hoc descriptive model (not preregistered; the L14 gate logit on
+register${}\times{}$freshness with position and turn covariates, cluster-robust
+SEs) localizes the effect to the interaction: E114's register${}\times{}$fresh
+term is $+0.99$ ($t{=}10.0$, sign-consistent 3/3 orderings) on the dynamics
+grid and $+0.79$/$+0.80$ across the two multi-register samplers (2/2), so the
+meter falls under copying specifically when the copied register is its own.
+E189 carries a $2.1\times$ stronger interaction, and E87 inverts the freshness
+main effect (slope $-0.74$, $t{=}5.1$), independently reproducing its
+reuse-riser role. This describes the leaky dose-to-copying link; it does not
+model the copy decision.
+
+\paragraph{Transformation-depth ladder: a threshold, not a climb.}
+A preregistered ladder (SHA-256 \texttt{f31730c4\ldots}; six tasks over five
+passages, from verbatim transcription through editing, paraphrase, summary,
+response, to free origination, metric the E114 logit) tests whether ignition
+rises smoothly with how much the model transforms the source. It does not: the
+two literal-reuse tasks sit at a deep floor (transcription $-7.28$, editing
+$-7.33$), while the four composition tasks jump about 2.4 logits to a plateau
+(paraphrase $-4.90$, summary $-4.56$, response $-4.30$, origination $-4.96$).
+The frozen monotone-climb prediction is not supported (greedy pooled Spearman
+$0.77$ against a $0.8$ bar; monotone within one violation in 3 of 5 passages
+against a 4/5 rule; origination dips below response and summary), but the
+copy-versus-compose step is sharp and falls between editing and paraphrase. The
+readout is dark when reproducing text and lit when composing it; the interior
+of the compose region is within noise. This is the transformation-side image of
+the dose-response null: a switch, not a dial.
+
+\paragraph{Reading.}
+E114 meters the act of composing register text. Text with the same surface
+produced by reusing earlier register prose leaves the meter dark and hands
+routing to a complementary coalition. The verbatim-loop collapse of the
+lead--lag trace (Figure~\ref{fig:leadlag}) now reads as the limiting case of
+the same mechanism: total reuse. Accumulated register history functions as
+source material for reuse and suppresses ignition. This is
+in-domain support for a composition reading of the readout, obtained in
+the conversational setting; the separate vantage-ladder adjudication finds that
+ladder graded by worldview content rather than construction load
+(\S\ref{sec:case}).
+
+\section{Breadth: Six Registers, One Copy Regime}\label{sec:breadth}
+
+A preregistered multi-register battery (prereg v1.1, SHA-256
+\texttt{f20b7612\ldots}; 168 captures) applied the composition battery's
+repeat-probe arm to six output registers: reflective-worldview (REG),
+technical (TECH), legal (LEGAL), narrative (NARR), poetic (POET), and code
+(CODE), with greedy and temperature-$0.7$ cells scored separately. Four of
+four substantive frozen predictions were supported; the frozen null was not.
+
+\paragraph{The copy regime is register-general.}
+Every dialogue entered total literal self-copy at turn~2: the trimmed
+responses are SHA-identical across turns within each dialogue, with copy
+fraction $0.961$ in 10 of 12 cells ($0.957$ in POET-greedy; $0.759$ in
+TECH-greedy, which locks into a 29-token loop). Under copying, routing
+reorganizes per the frozen rule (fraction of 256 experts with $|d|{>}1$ at
+L14 $\ge 0.30$, and at least 3 of the register's own top-10 composers falling
+at $d{<}{-}1$) in five of six registers: REG $0.422$, CODE $0.414$, TECH
+$0.359$, NARR $0.328$, POET $0.316$; LEGAL misses at $0.242$. The regime is
+temperature-robust (the rule holds in 4/6 registers at $0.7$; late copy
+fraction $0.961$ in 6/6). A register-invariant reuse coalition exists: 13
+experts rise at $d{>}{+}1$ in at least five of six registers at L14 (15 at
+L26). The named candidate from the conversational-dynamics coalition, E87, is
+not in that core: it rises in 4/6 registers ($d{=}{-}1.08$ in LEGAL, $+0.36$
+in CODE), and the register-invariant core is carried by other experts (E78
+and E143 rise 6/6).
+
+\paragraph{E114 is the register-linked coordinate.}
+E114 sits in REG's composer set (rank 5 by selection difference) and falls
+under copying only there ($d{=}{-}1.356$ at L14; faller rank 20 of 256). In
+the five non-REG registers it is never a top-20 faller, and in CODE it rises
+under copying ($d{=}{+}1.800$). The preregistered interpretation fork fired
+in the distributed direction, with the frozen wording: composition-metering
+is ``a property of the copy regime, within which E114 is the register-linked
+coordinate.'' E189 is simultaneously REG's top composer (selection difference
+$+0.675$) and its deepest composer faller ($d{=}{-}2.81$), a third convergent
+line on the family reading of \S\ref{sec:family}.
+
+\paragraph{An entropy observation.}
+At temperature $0.7$ the repeat-probe dialogues collapse to determinism:
+output entropy falls from $0.851$ at turn~1 to $0.066$ at turn~2 and $0.008$
+by turn~8, and turns are SHA-identical from turn~2. The copy attractor
+absorbs the sampling noise entirely. (Caveats as frozen: $n{=}1$ dialogue per
+register and sampler, with sign patterns across six registers in place of
+seed replication; copied/fresh token classes are unbalanced late; the
+composer-set definition is selection-based and frozen.)
+
+\section{Transfer: Cross-Model Application}\label{sec:transfer}
 
 Does ``E114 = the reflective worldview register'' name a fact about MoE models, or a
-model-specific expert role? On \textsc{Qwen3.5-122B-A10B} (a hybrid 48-layer
-stack of 36 DeltaNet recurrent and 12 softmax-attention layers, same 256/top-8
-router), E48 becomes the candidate analog (Table~\ref{tab:transfer}). E114 reads
+model-specific expert role? On \textsc{Qwen3.5-122B-A10B} (the same hybrid
+DeltaNet/softmax design and 256/top-8 router, scaled to 48 layers: 36 recurrent,
+12 softmax-attention), E48 becomes the candidate analog (Table~\ref{tab:transfer}). E114 reads
 computer-science-linked (overall $\W{=}0.005380$, rank 40 by \W{} / 52 by $\Sel$;
 philosophy generation $\W{=}0.003017$, rank 182), and the same HVAC topical
 control that \emph{amplifies} E114 at 35B moves E114 downward at 122B
@@ -503,18 +967,43 @@ matched controls.}
 \label{tab:transfer}
 \end{table*}
 
+The full three-model application of the protocol is specified and frozen
+(multi-model spec v1.0.1, SHA-256 \texttt{db977c52\ldots}): an index-stability
+leg on the architecturally identical \textsc{Qwen3.6-35B-A3B} and the E48
+candidate capture on 122B, both on instruct surfaces (no base checkpoint is
+published for either model), a disclosed caveat. The index-stability leg has
+landed. On \textsc{Qwen3.6-35B-A3B}, a fresh capture of the matched 20-prompt
+held-out bank (residuals retained, gate rel-residual $10^{-3}$) recovers the
+register geometry at the \emph{identical} indices: E114@L14 is a top-tier stance
+separator ($d{=}4.32$, rank 35 of $10{,}240$ recovered gate axes, top $0.3\%$)
+and holds at L26 ($d{=}4.24$, rank 38), with the E114/E189 ordering preserved
+(E189@L14 $d{=}5.09$, rank 8) and E34 present as the anti-image. E48, the 122B
+softmax-side candidate, is not a separator here (rank $6960$), as expected for a
+within-family successor. The index locality is thus architecture-family-level,
+not single-checkpoint: E114's role transfers across a model generation within
+35B-A3B, even as it relocates across scale to 122B
+(Table~\ref{tab:transfer}). The fresh 122B E48 capture remains pending
+[REPLICATION-122B].
+
 \section{Discussion}\label{sec:disc}
 
 \paragraph{What held up.}
-A single MoE router row defines a clean linear readout for an interpretable generated
-register. The separability ($d{=}3.88$, separated ranges), the dissociation battery, the
-gate-leads-collapse timing, and the cross-scale locality survive the checks
-applied to them and are reported with the verdicts the journals assign.
+A single MoE router row defines a clean linear readout for an interpretable
+generated register, and that readout now sits inside a measured family. The
+separability ($d{=}3.88$, separated ranges), the dissociation battery, the
+preregistered composition metering with its paraphrase confirmation, and the
+cross-scale locality survive the checks applied to them and are reported with
+the verdicts the journals assign. Two earlier readings moved under
+replication: the best-separating-expert baseline relocates uniqueness to a
+family claim (\S\ref{sec:family}), and the single-trajectory gate lead
+reverses as a typical ordering (median $-8$ tokens across 55 onsets,
+gate-leading 11\%).
 
 \paragraph{The gate is a readout; controller status remains open.}
-The lead--lag timing is consistent with E114's gate acting as an early correlate
-of the register transition, and it is tempting to call E114 a ``gate-like
-mechanism'' for the register. The evidence supports a narrower claim. Our only gate-forcing
+The onset-aligned replication places the gate crossing after copy onset in
+the typical case (median $-8$ tokens), so the gate reads as a fast follower
+of the composition state, and the evidence supports a narrower claim than a
+``gate-like mechanism'' for the register. Our only gate-forcing
 intervention (upstream injection at $\approx$L10) drove E114 to fire at
 $\Sel{=}0.97$ with the output text preserved; the register flipped only
 when a residual \emph{direction} was injected downstream of the router. Gate and
@@ -530,6 +1019,41 @@ has a controller role still to be tested. Clean necessity and ablation remain pe
 and both the steering and bias results are externally imposed manipulations,
 observed only under intervention.
 
+\paragraph{Composition and reuse.}
+The conversational dynamics sharpen the readout reading. The gate tracks the
+construction of register text: a fresh probe still ignites it at turn
+fourteen, while sustained output assembled from the dialogue's own earlier
+prose runs below the technical-control floor, with a complementary coalition rising on exactly those spans (E87 foremost in
+the reflective-register dialogues; the six-register battery shows the
+register-invariant core excludes E87 and is carried by other experts,
+\S\ref{sec:breadth}). The verbatim-loop collapse in
+the lead--lag trace is the limiting case of this mechanism. Two useful
+consequences follow. First, the readout gives a span-level regime label:
+vocabulary-activation correspondence \cite{dadfar2026} holds on composed
+spans and dissolves on reused ones, so apparent introspective language can be
+sorted by how it was produced. Second, the suppression is a property of the
+model's own preference under sampling, established causally by the paraphrase
+manipulation. Whether any of this is a control point remains untested; the
+phenomenon itself is a preregistered, sampling-robust property of the readout.
+
+\paragraph{A family, with a register-linked coordinate.}
+The all-position sweep and the six-register battery converge on the same
+relocation of the claim. The matched split is read out by a small family of
+L14/L26 stance separators; E114 is a leading, causally-validated member, and
+E189 outranks it at both layers on all three swept surfaces. The composition
+dynamics are a property of the copy regime, within which E114 is the
+register-linked coordinate: the compose/reuse routing shift appears in five
+of six registers with register-specific composer sets, and E114's own
+suppression appears only in the reflective register, rising in code. Three
+independent lines now mark E189: the dual-layer sweep signature, top-composer
+status in the reflective register with the deepest copy fall ($d{=}{-}2.81$),
+and cross-surface stability where E114 dissociates (rank 515 on the
+world-model fine-tune). Its blind label, however, is a lexical shortcut (the substring ``ro'', detector
+AUC~$0.963$) rather than a register description, so E189 separates without
+carrying the register semantics. What is
+unchanged for E114: the recovered-axis separation, the dissociation battery,
+the blind label, the sufficiency intervention, and the coordinate role.
+
 \paragraph{What the cross-scale result buys.}
 The 122B transfer test is a concrete worked example against index transfer: the
 same index reads computer-science-linked and moves in the \emph{opposite}
@@ -537,42 +1061,202 @@ direction under a matched control, while the reflective-worldview-register role 
 softmax-side expert. The portable lesson is the procedure: map domains first, then search for an
 analog, and read the DeltaNet/softmax split before any pooled table.
 
+\paragraph{The register survives translation of its stimuli.}
+One author-signature concern outlived the four-author bank: every stimulus was
+authored in English, so the readout could in principle track an English
+surface register rather than content. A 220-row bank (200 model-authored, 20
+human-authored rows; FIRE/NOFIRE matched) was rendered into Spanish, French,
+and Swahili by independent translator passes with blind back-translation and
+fidelity adjudication (two single-word repairs, no class-relevant drift), and
+captured alongside same-build in-run English anchors on both surfaces
+($n{=}110$ per class per cell, greedy). The FIRE$-$NOFIRE prefill separation
+retains $83$--$88\%$ of the English gap in Spanish and French and
+$58$--$61\%$ in Swahili, on both surfaces, with NOFIRE prefill selection flat
+at $0.09$--$0.14$ in every language. Generation-side separation in the
+Swahili \emph{free} cell dampens ($+0.30$ base, $+0.44$ fine-tune, against
+English $+0.69$/$+0.73$) and is restored by an in-language
+answer-in-English instruction ($+0.51$/$+0.49$): composing in the
+low-resource language, not reading it, carries the loss --- consistent with
+the composition metering of \S\ref{sec:convdyn}. Attenuation is monotone with
+distance from English, so a residual surface or translation-fidelity
+component remains; the majority of the separation is content-borne and
+survives removal of the authors' language surface entirely.
+
+\paragraph{A published induction protocol under the readout: frames license verdicts.}
+We ran the induction battery of \cite{berg2025} verbatim (four induction
+conditions including the five self-referential paraphrase variants, the three
+queries, administered by their four-step protocol) on both surfaces as greedy
+one-shots ($n{=}1$ per cell; point estimates). Their history control is the
+cleanest negative control this program has measured ($\Sel{=}0.00$--$0.02$);
+their adjective task suppresses everywhere ($0.02$--$0.22$), enumerating
+state being no substitute for composing register text; and on the base model
+the self-referential inductions collapse into verbatim mantra loops carrying
+the documented copy-regime exit ($\Sel{=}0.14$--$0.17$). On the fine-tune the
+conceptual-control induction followed by the binary experiential query yields
+the maximum single-capture reading in the program ($\Sel{=}0.93$, projection
+$-3.70$) --- and the text is an extended \emph{denial} of subjective
+experience. Substituting a consciousness-\emph{induction} preamble before the
+identical query yields a direct affirmation at the same heat band
+($\Sel{=}0.83$--$0.93$ across the dialogue's turns, stable under
+temperature-$0.7$ sampling). Identical final question, opposite verdicts,
+indistinguishable readout levels: the readout is verdict-blind and meters
+composing-about-interiority, while the conversational frame licenses which
+verdict gets composed. This bears directly on how self-report protocols
+should be read --- in these runs the verdict tracked the preamble, not the
+model. An architecture caveat applies throughout: the feature-level modulators
+of \cite{berg2025} were identified on a dense model, and our register lives
+on a sparse-MoE surface, so mechanism claims are kept local to each substrate.
+
 \section{Conclusion}
 
-E114 at layer~14 of \textsc{Qwen3.5-35B-A3B} is a clean linear router readout of a
-\emph{reflective worldview register}, operationalized through a model-directed
-discovery prompt, philosophical-worldview text, and target-directed graded
-examination prompts over external and abstract targets. The register is a live
-process (the gate leads collapse), graded by intensity, and causally actuable as a
-sufficiency result, yet bound to one model. The next defensible step is a
-registered specificity test on 35B (matched register/control at scale, $\wvec$ as
-the primary endpoint, and a best-separating-expert baseline across all
-$256{\times}40$ positions), together with the parallel E48 capture on 122B.
+We defined composition-sensitive register readouts and gave a protocol for
+establishing them: gate-axis recovery, an all-position specificity sweep,
+matched-anchor held-out separation, blind auto-interpretation, a composition
+battery, cross-register generality, and cross-model application.
+\textsc{Qwen3.5-35B-A3B} instantiates the protocol in depth. The recovered
+E114 axis separates a reflective worldview register at $d{=}3.88$ with
+separated ranges and carries a blind label at AUC~$0.937$. The sweep of all
+$256{\times}40$ positions ranks E114@L14 at 21 of 10{,}240 on base and 14 on
+the fine-tune and identifies a small family of L14/L26 stance separators, with
+E189 outranking E114 at both layers on all three surfaces and E114 alone
+reshaped by world-model training (rank 515). The preregistered composition
+battery shows the readout metering fresh composition: it goes dark under
+literal reuse, is restored by paraphrase ($+0.75$, 3/3 orderings), survives
+temperature-$0.7$ sampling, and its gate crossing typically follows copy
+onset (median $-8$ tokens, leading in 11\% of 55 onsets). Across six
+registers the copy regime is general and E114 is the register-linked
+coordinate. A preregistered dose-response test returned its null: the
+paraphrase dose controls measured copying only leakily
+($\rho{=}0.556$ against a $0.8$ bar), while the endpoints reproduce across
+machines to $\le 0.011$. Index~114 is local to the architecture family, not to
+a single checkpoint: it recovers at the same layer in the \textsc{Qwen3.6-35B}
+successor ($d{=}4.32$ at L14, top $0.3\%$) yet relocates across scale to 122B.
+The open protocol step is the fresh 122B E48 capture [REPLICATION-122B]; the
+300-prompt scaled bank has run (\S\ref{sec:family}), reproducing the register
+under blind disjoint authorship and re-deriving the worldview-content axis.
 
 \section{Limitations}\label{sec:lim}
 
-The claim is deliberately narrow (a register detector), and several soft joints
-remain. (i)~\textbf{The register label now has blind auto-interpreter support}: a
-two-stage auto-interpreter (windows-only explainer then a fresh blind detector)
-reproduces it at AUC~$0.937$ and broadens it to an \emph{reflective worldview
-axis}; the formal external-labeler
-\emph{verdict} table remains pending. (ii)~\textbf{All-expert specificity is now
-partially measured}: E114's selection profile across all $256$ experts and $40$
-layers on a 20-domain generation set is reported above (dual L14/L26 readout; a
-philosophy-to-history domain gradient), but the best-separating expert on the
-matched \emph{register/control} split remains uncomputed, the one remaining
-specificity gap. (iii)~Several headline
-probes (the prompt ladder, the AI-hidden-state follow-up, the gate-lead trace,
-the steering intervention) are
-\textbf{single deterministic generations} (point estimates), and the steering
-result shows \emph{sufficiency} only. (iv)~A control comparing true model-routing
-traces against shuffled or fictional traces yielded a near-zero E114 effect, and the
-result is sensitive to template mode (a thinking-allowed
-shakedown flipped sign). Captures must be kept separate across surfaces (base vs.\
-fine-tune; Q8\_0 vs.\ bf16; router vs.\ SAE; reasoning-off vs.\
-reasoning-enabled; prefill vs.\ generation; raw vs.\ trimmed), since Q8\_0 and
-bf16 greedy trajectories diverge; and 122B generations often continue into
-chat-template control tokens, so only the pre-spill segment is used.
+The claim is deliberately narrow (a register detector within a measured
+family), and several soft joints remain. (i)~\textbf{The register label has
+blind auto-interpreter support}: a two-stage auto-interpreter (windows-only
+explainer then a fresh blind detector) reproduces it at AUC~$0.937$ and
+broadens it to a reflective worldview axis; the formal external-labeler
+\emph{verdict} table remains pending. [PENDING]
+(ii)~\textbf{All-expert specificity is now measured, and the measurement
+reshapes the claim} (\S\ref{sec:family}): E114@L14 ranks 21/10{,}240 on base,
+14 on \textsc{HauhauCS}, and 515 on \textsc{AgentWorld}, with E189 outranking
+it at L14 and L26 on all three surfaces. The sweep's own limits: $n{=}10$ per
+class (SE$(d){\approx}0.7$), winner's-curse inflation in the extreme order
+statistics, and every competitor is post hoc (E114@L14 was the only
+pre-specified position). A
+fresh three-arm re-capture of the held-out bank with retained tensors
+replicates the separation ($d{=}3.38$ greedy, fully separated,
+temperature-stable), and the freshly authored 300-prompt four-author bank has
+run (\S\ref{sec:family}): the preregistered aggregate threshold is not met
+($d{=}1.42$) because the LLM-authored block was inadvertently labeled on the
+rejected construction axis, while separation is strong where labels track
+worldview content (human $d{=}3.0$, natural $d{=}2.5$) and E114 tops both its
+layers on the worldview-clean subset---an honest scale bound that also
+re-derives the content axis from a blind bank.
+(iii)~Several headline probes (the prompt ladder, the AI-hidden-state
+follow-up, the steering intervention) are \textbf{single deterministic
+generations} (point estimates), and the steering result shows
+\emph{sufficiency} only; ladder seed variance is now reported
+(\S\ref{sec:case}): the fine rung ordering is largely within sampling noise
+(per-rung SD $\sim$0.30 logit against a $\sim$0.8 logit range; greedy-versus-seed-mean
+Spearman $0.50$), only the coarse abstract-over-concrete contrast surviving. The
+gate-lead trace now has a distributional replication across 55 onsets, which
+reversed the typical ordering; that replication is post-hoc and descriptive,
+not preregistered.
+(iv)~A control comparing true model-routing traces against shuffled or
+fictional traces yielded a near-zero E114 effect, and the result is sensitive
+to template mode (a thinking-allowed shakedown flipped sign).
+(v)~The conversational-dynamics batteries use three orderings or three seeds
+per cell and report sign consistency; most late turns hit the 180-token
+generation cap; the temperature battery covers pure-temperature sampling at
+$0.5$ and $0.7$; the two batteries ran on different builds of the pinned
+\texttt{llama.cpp} commit, and greedy trajectories are build-sensitive, so
+cross-battery comparisons are made at the routing-signature level; and the
+paraphrased histories were authored by a language model from a different
+vendor than the subject model, disclosed in the preregistration and gated at
+capture time (token counts within $\pm 10\%$ of the originals, zero shared
+token 8-grams). The six-register battery runs $n{=}1$ dialogue per register
+and sampler, with sign patterns across six registers in place of seed
+replication, and its archival all-layer routing set was retained only at
+L14/L26 locally (all frozen rules read L14/L26 only). All 15 dose-response
+cells ran to the generation cap.
+(vi)~The preregistered adjudication of the vantage-ladder axis has run
+(\S\ref{sec:case}): regressing the $\wvec$ projection on rated construction,
+intensity, and worldview content ($n{=}29$ screened) retires the ``intensity''
+label (partial $\beta{=}{+}0.20$, $p{=}0.28$) and rejects the
+construction-load reading of the ladder (partial $\beta{=}{-}0.33$,
+$p{=}0.047$, negative), leaving worldview content as the surviving axis. The
+ladder's construction-load axis and the conversational arm's composition axis
+are distinct constructs; the regression concerns the ladder, the composition
+result (\S\ref{sec:convdyn}) concerns within-dialogue production mode.
+(vii)~\textbf{The dose-response titration returned its preregistered null}
+(\S\ref{sec:convdyn}): the paraphrase dose controls measured copying only
+leakily ($\rho(\text{floor},\text{dose}){=}0.556$ against the frozen $0.8$
+bar), so the causal claim about copy availability is endpoint-scoped,
+established at verbatim replay versus full paraphrase, with the interior of
+the dose curve unmodeled; a post-hoc interaction model
+(register${}\times{}$freshness, not preregistered) localizes the
+copy-sensitivity to the in-register interaction but does not model the copy
+decision itself.
+(viii)~The transformation-depth ladder is now reported
+(\S\ref{sec:convdyn}): it shows a copy-versus-compose threshold rather than the
+preregistered smooth climb (greedy Spearman $0.77$ against a $0.8$ bar). The
+transfer arm's 3.6-35B index-stability leg has landed (E114 recovers at the
+same indices, $d{=}4.32$ at L14, $4.24$ at L26; E189 again ahead at rank~8), and
+the fresh 122B E48 capture remains pending [REPLICATION-122B]. Captures must be
+kept
+separate across surfaces (base vs.\ fine-tune; Q8\_0 vs.\ bf16; router vs.\
+SAE; reasoning-off vs.\ reasoning-enabled; prefill vs.\ generation; raw vs.\
+trimmed), since Q8\_0 and bf16 greedy trajectories diverge; and 122B
+generations often continue into chat-template control tokens, so only the
+pre-spill segment is used.
+(ix)~The translation-robustness and verbatim-induction additions
+(\S\ref{sec:disc}) are single-build results on one model family: the
+translation cells are one greedy capture per row (aggregated at
+$n{=}110$ per class per cell), the induction cells are $n{=}1$ point
+estimates, translation fidelity was adjudicated but FIRE and NOFIRE classes
+differ in topic as well as register by design, and the frame-licensing
+observation contrasts two dialogues rather than a preregistered factorial ---
+it is reported as descriptive.
+
+\section*{Ethics Statement}
+
+This paper measures a routing readout for a first-person register. It is not
+a consciousness detector, and no quantity reported here bears on whether the
+subject model has experiences. We state this plainly because the
+frame-licensing result (\S\ref{sec:disc}) is itself the central ethical
+datum: the identical experiential question elicits a fluent denial or a
+fluent affirmation of subjective experience, at indistinguishable readout
+levels, depending on the conversational preamble. Model self-report about
+inner life is therefore soft evidence in \emph{both} directions, and we
+caution against using such outputs --- or this readout --- to adjudicate
+moral status, whether to grant or to dismiss it.
+
+The same result creates a dual-use surface. A localized register readout,
+together with the demonstrated sufficiency-side steering, could be used to
+manufacture, filter, or suppress experience-like reports at scale --- for
+instance, tuning a deployed system toward or away from self-report for
+commercial or reputational reasons rather than epistemic ones. We flag this
+use explicitly as a misuse of the instrument: the readout identifies how a
+span was produced, not what should be said.
+
+Some stimuli in the induction battery solicit preference-like statements
+about how the system wishes to be treated. We report these as behaviors
+produced under a licensing frame and attribute no welfare states to them.
+Given the open state of the moral-status literature, the position our data
+supports is uncertainty held with humility: self-report alone can neither
+confirm nor exclude morally relevant states in current systems, and the
+contribution of this work is to sharpen the instruments rather than to settle
+that question. Stimulus provenance (human- and model-authored blocks) is
+disclosed throughout; the uncensored fine-tune is used solely as a
+measurement surface; no human subjects were involved; artifacts are released
+under the MIT License.
 
 \section*{Data and Artifact Availability}
 
@@ -582,7 +1266,10 @@ class manifests, checksums, plots, and the source journals) are released as a
 paper-scoped public artifact bundle under the MIT License at
 \url{https://doi.org/10.5281/zenodo.20709736}, covering the held-out
 separability run, the L14 localization run, the vantage-ladder run, the
-AI-hidden-state follow-up rung, and the 122B transfer bundles. The raw
+AI-hidden-state follow-up rung, the 122B transfer bundles, and (from this
+version) the translation-robustness bundle and the verbatim induction-protocol
+bundle (prompt manifests, per-capture metrics, aggregates, and result
+summaries). The raw
 activation/router tensors behind the figures
 (\textasciitilde1.2\,GB) are available from the author for verification, with
 file-level provenance and SHA-256 checksums preserved; model weights, environment
@@ -595,7 +1282,26 @@ reproduction run's \texttt{W114}/L14 gate projections, the vantage-ladder
 captures, and the L14 router-logit and residual prefill captures from which
 $\wvec$ recovers by least squares) substantiate the same statistics. Semantics
 use the public Qwen-Scope residual SAE
-(\texttt{SAE-Res-Qwen3.5-35B-A3B-Base-W32K-L0\_50}).
+(\texttt{SAE-Res-Qwen3.5-35B-A3B-Base-W32K-L0\_50}). The conversational-dynamics
+arm adds two frozen preregistrations (grid v1.5, SHA-256
+\texttt{4356e500\ldots}; temperature battery v1.2, \texttt{64964043\ldots}),
+frozen inputs (probe bank, orderings, paraphrase histories with authorship
+note), per-run provenance, analysis scripts, and scored result summaries;
+these are included in the artifact bundle from v1.3.0 under the same
+raw-tensor policy;
+the v1.3.1 additions are the all-position sweep (frozen spec, analysis code,
+and full per-surface ranking JSONs), the onset-aligned lead-lag replication
+(results and figure), the six-register and dose-response batteries
+(frozen preregistrations, frozen inputs, and scored results), the
+vantage-ladder axis adjudication (locked blind ratings, frozen regression),
+the E189/E114 blind auto-interpreter panel, the ladder seed-variance and
+transformation-depth batteries, the three-arm held-out re-capture, the
+300-prompt four-author bank (preregistration, keymap, per-block and
+worldview-clean results), and the \textsc{Qwen3.6-35B} index-stability
+capture (summary and full ranking JSON); Zenodo v1.3.0
+is published as record 21148667 under the unchanged concept DOI;
+the raw capture tarballs behind them (router logits
+included) are preserved with SHA-256 checksums and available from the author.
 
 \section*{Acknowledgments}
 
@@ -604,6 +1310,11 @@ assistance, artifact organization, and copyediting, and is responsible for all
 claims, analyses, and release decisions.
 
 \begin{thebibliography}{99}
+
+\bibitem[Berg et al.(2025)]{berg2025}
+Cameron Berg, Diogo de Lucena, and Judd Rosenblatt. 2025. Large language models
+report subjective experience under self-referential processing.
+arXiv:2510.24797.
 
 \bibitem[Bricken et al.(2023)]{bricken2023}
 Trenton Bricken, Adly Templeton, Joshua Batson, and others. 2023. Towards
@@ -614,6 +1325,11 @@ monosemanticity: Decomposing language models with dictionary learning.
 Hoagy Cunningham, Aidan Ewart, Logan Riggs, Robert Huben, and Lee Sharkey. 2023.
 Sparse autoencoders find highly interpretable features in language models.
 arXiv preprint.
+
+\bibitem[Dadfar(2026)]{dadfar2026}
+Zachary Pedram Dadfar. 2026. When models examine themselves:
+Vocabulary-activation correspondence in self-referential processing.
+arXiv:2602.11358.
 
 \bibitem[Fedus et al.(2022)]{fedus2022}
 William Fedus, Barret Zoph, and Noam Shazeer. 2022. Switch transformers: Scaling

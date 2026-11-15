@@ -1,0 +1,13 @@
+When raw materials arrive at a factory, the processing begins with a series of systematic steps designed to transform these inputs into finished products. Here’s a detailed, honest description of what happens:
+
+### 1. **Unloading and Inspection**
+- **Unloading**: Raw materials are unloaded from trucks, trains, or ships using forklifts, cranes, or conveyor belts.
+- **Inspection**: Upon arrival, materials are inspected to ensure they meet quality standards. This includes checking for physical damage, verifying quantities, and confirming that the materials are the correct type and grade.
+
+### 2. **Storage**
+- **Temporary Storage**: If the materials are not immediately needed, they are stored in designated areas. This could be a warehouse, a yard, or a specialized storage facility.
+- **Inventory Management**: The materials are logged into the inventory management system to track their location and availability.
+
+### 3. **Preparation**
+- **Sorting and Segregation**: Materials are sorted based on their type, size, or other relevant characteristics. This ensures that the right materials are used for the right processes.
+- **Cleaning and Treatment**: Some materials may require cleaning, drying, or chemical treatment to remove impurities or prepare them for

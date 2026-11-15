@@ -1,0 +1,21 @@
+**Report on CPU Processing Under Heavy Load**  
+**Date:** [Current Date]  
+**Subject:** Mechanical Breakdown of CPU Operations During High-Load Scenarios  
+
+---
+
+### **1. Overview**  
+Under heavy computational load, a CPU executes instructions at maximum capacity, engaging all architectural components to process data and manage tasks. This report details the mechanical processes involved, from instruction fetching to thermal management, without metaphorical abstraction.  
+
+---
+
+### **2. Core Components and Their Roles**  
+#### **A. Instruction Fetch and Decode**  
+- **Fetch Unit**: Retrieves instructions from L1/L2 cache or main memory (RAM) via the front-side bus (FSB) or direct media interface (DMI).  
+- **Decode Unit**: Translates binary opcodes (e.g., x86 instructions) into micro-operations (µops) for the execution core.  
+- **Heavy Load Impact**: Increased cache misses force frequent RAM access, increasing latency.  
+
+#### **B. Execution Units**  
+- **Arithmetic Logic Unit (ALU)**: Performs integer operations (addition, subtraction, bitwise logic).  
+- **Floating-Point Unit (FPU)**: Handles complex calculations (e.g., trigonometric functions).  
+- **

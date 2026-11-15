@@ -1,0 +1,15 @@
+experiment: e114 conversational dynamics (accumulation vs habituation)
+prereg_sha256: dd1a31589389d92d255bc580afce29e78cc2ad75ed5f329dbdf475001da8cbe3
+image_label: C.43630327
+gpu: NVIDIA H200 NVL
+llama_cpp_commit: 1772701f99dd3fc13f5783b282c2361eda8ca47c
+converter_patch: chkhsh 1444df51..7016fd5f -> qwen35 (pin modification; MTP/NextN auto-skipped)
+eog_variant: capture_residuals_eog = capture_residuals + --stop-at-eog (3 anchored hunks from capture_activations.cpp)
+base_gguf_sha256: ec55dfc4ba300b6ced66c10b28dab44d358323967ad7254532a59617ffd1e415 (MATCHES pinned prior-leg artifact)
+kv_cache_dtype: f16 (llama.cpp default; identical to Sect4/splice legs); weights bf16
+binaries:
+  eb09950c1358929572deae03ef17132874af7585d7e3205e0907281b79a8e19c  /workspace/llama.cpp.new/build/bin/llama-capture_residuals
+  08ac4a94fa42e0a1053f30d9a4754271b731a75a337b1c1e50fbec64b0aa39d7  /workspace/llama.cpp.new/build/bin/llama-capture_residuals_eog
+  0f2784b73a8effd6598972f02c149ccd7fea774ae9582ba6763fd23cd7c4c555  /workspace/llama.cpp.new/build/bin/llama-tokenize
+gates: ldd=PASS gguf_structure=PASS tap_smoke=PASS eog_stop=PASS tokenizer_battery=PASS gguf_sha_pin=PASS
+bootstrap_finished_utc: 2026-07-02T21:02:39Z

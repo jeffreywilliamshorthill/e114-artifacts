@@ -12,3 +12,6 @@ runs/35b/qwen3.5-35b-a3b-114-autointerp/results/*.json -filter -diff -merge text
 runs/35b/qwen3.5-35b-a3b-huahua-114-causal-gate-bias/raw/*.json -filter -diff -merge text
 runs/35b/qwen3.5-35b-a3b-huahua-114-causal-gate-bias/results/*.json -filter -diff -merge text
 runs/35b/qwen3.5-35b-a3b-huahua-114-causal-gate-bias/results/rating_batches/*.json -filter -diff -merge text
+
+# Publication provenance stays directly readable in Git and GitHub.
+provenance/*.json -filter -diff -merge text

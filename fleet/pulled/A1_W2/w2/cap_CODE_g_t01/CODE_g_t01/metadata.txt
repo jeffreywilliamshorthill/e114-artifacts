@@ -1,0 +1,8 @@
+prompt_id=CODE_g_t01
+prompt=<|im_start|>user Write a Python function that parses a log file and returns the count of unique IP addresses per hour, with a short docstring.<|im_end|> <|im_start|>assistant </think>  
+n_tokens_prompt=50
+n_tokens_generated=180
+n_router_tensors=40
+n_residual_tensors=0
+target_layers=0..39
+elapsed_ms=2935

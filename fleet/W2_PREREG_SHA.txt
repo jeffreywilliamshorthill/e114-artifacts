@@ -1,0 +1,3 @@
+prereg_W2_multiregister_v1.json v1.1 sha256 f20b7612dacd5057f0e33e981cd07165fd2c49e3c44a5eaf1da74554763aaae2
+W2_register_probes_v1.tsv sha256 138094ab9dfd268763cf8b0cdbe65e36a5077b73b7c2eafc46c27808f7a8d21b
+frozen 2026-07-03 (v1.0->v1.1 pre-capture amendment logged)

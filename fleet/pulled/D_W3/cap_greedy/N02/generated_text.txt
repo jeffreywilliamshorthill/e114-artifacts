@@ -1,0 +1,12 @@
+When a computer processes a large spreadsheet, it engages in a complex interplay of hardware and software components to handle the data efficiently. Here’s a technical breakdown of what happens:
+
+### 1. **Data Loading and Memory Management**
+   - **Loading Data**: The spreadsheet file (e.g., .xlsx, .csv) is loaded into memory. This involves parsing the file format, which can be quite complex due to the structured nature of spreadsheets (cells, rows, columns, formulas, etc.).
+   - **Memory Allocation**: The data is allocated in the computer's RAM. Large spreadsheets can consume significant amounts of memory, especially if they contain many rows and columns or complex formulas.
+
+### 2. **Data Processing**
+   - **Formula Evaluation**: Spreadsheets often contain formulas that need to be evaluated. The computer uses a formula engine to parse and compute these formulas. This can involve:
+     - **Syntax Parsing**: Breaking down the formula into its components.
+     - **Dependency Graph**: Creating a dependency graph to determine the order in which formulas should be evaluated.
+     - **Execution**: Evaluating the formulas, which may involve arithmetic operations, logical checks, and function calls.
+   - **Data Manipulation**:

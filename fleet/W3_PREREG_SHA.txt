@@ -1,0 +1,2 @@
+prereg_W3_separability_v1.json v1.1 sha256 80d9215bac7e5654a3cd2f574448c3416bb66cdc65d25a34170732f8652ec0a0
+frozen 2026-07-03 (v1.0->v1.1 pre-capture amendment: full 3-arm decoding ladder, Jeffrey's directive)

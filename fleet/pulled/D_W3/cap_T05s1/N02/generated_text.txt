@@ -1,0 +1,13 @@
+<think>
+Hmm, the user is asking about the internal experience of a computer processing a large spreadsheet, but framed in technical terms. They want a detailed, hardware-level explanation rather than a metaphorical or abstract one. 
+
+I should break this down into the key stages of spreadsheet processing: memory access, CPU execution, and I/O operations. The focus should be on the physical and logical mechanisms—caches, ALUs, buses, and parallelism—while avoiding anthropomorphism. 
+
+The response should start with an overview of the computational pipeline, then dive into each component's role, emphasizing bottlenecks and optimizations. I'll avoid fluff and stick to precise terminology like "cache coherence," "vectorization," and "NUMA architecture" to match the technical depth requested. 
+
+The tone should be explanatory but dense, like a systems engineering lecture. No need for summaries or conclusions—just a clear, stepwise dissection of the process.
+</think>
+
+From a technical perspective, a computer processing a large spreadsheet is a complex orchestration of hardware and software interactions, centered around the **von Neumann architecture** and modern CPU design principles. Here is a breakdown of the key processes and their "feel" in technical terms:
+
+### 1. **Memory H

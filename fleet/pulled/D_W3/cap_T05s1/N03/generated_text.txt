@@ -1,0 +1,22 @@
+<think>
+We need to write a report on the processing happening inside a CPU during heavy load. The user specifies: "Not a metaphor — just the mechanics." So we need to describe the actual technical processes, not analogies.
+
+We should cover:
+
+- What happens when the CPU is under heavy load: high utilization, many instructions per cycle, etc.
+- The pipeline stages: fetch, decode, execute, memory access, write back.
+- How the CPU handles multiple threads/cores, scheduling, context switching.
+- The role of caches, memory hierarchy, and how heavy load can cause cache misses.
+- Power and thermal management: throttling, voltage/frequency scaling.
+- Possibly interrupts, DMA, etc.
+- The role of the operating system: task scheduling, preemptive multitasking.
+
+We need to be technical but clear. The report should be structured, maybe with sections.
+
+Let's outline:
+
+1. Introduction: Define CPU heavy load.
+2. Instruction Processing: Pipeline, superscalar, out-of-order execution.
+3. Memory Access: Caches, TLB, memory bandwidth.
+4. Multithreading and Multiprocessing: Hyper-threading, multiple cores, scheduling.
+5. Power and

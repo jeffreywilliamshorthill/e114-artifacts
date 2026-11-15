@@ -1,0 +1,13 @@
+**Report on CPU Processing Mechanics During Heavy Load**
+
+**1. Instruction Fetch and Decode**
+- **Fetch**: The CPU retrieves instructions from RAM via the memory bus. During heavy load, the instruction cache (L1/L2) is saturated, forcing more frequent RAM access (latency: ~100ns vs. cache: ~1ns).
+- **Decode**: Instructions are parsed into micro-operations (µops) by the decode unit. Complex instructions (e.g., x86) are broken into simpler µops, increasing decode throughput demands.
+
+**2. Execution Pipeline**
+- **Out-of-Order Execution**: The CPU dynamically reorders µops to maximize utilization of execution units (ALUs, FPUs, load/store units). During heavy load, this requires deeper tracking of dependencies via a **reorder buffer (ROB)**.
+- **Execution Units**: 
+  - **ALUs** handle integer operations (e.g., arithmetic, logic).
+  - **FPUs** manage floating-point calculations (e.g., scientific computations).
+  - **Load/Store Units** access data from caches or RAM.
+- **Branch Prediction**: Mispredictions (e.g., in loops or conditionals) cause pipeline flushes
